@@ -45,6 +45,8 @@ export default function TabLayout() {
       />
       <Tabs.Screen name="two" options={{ title: 'Tab Two', tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />, }} />
       <Tabs.Screen name="three" options={{ title: 'Tab Three', tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />, }} />
+      <Tabs.Screen name="four" options={{ title: 'Tab Four', tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />, }} />
+      <Tabs.Screen name="five" options={{ title: 'Tab Five', tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />, }} />
     </Tabs>
   );
 }
