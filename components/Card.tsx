@@ -14,7 +14,7 @@ const Card = (props: Props) => {
     <View style={styles.cardContainer}>
       <View style={styles.avatarContainer}>
         <Image style={[styles.avatar, {zIndex:3}]} source={props.avatarUri}/>
-        <Image style={styles.avatar} blurRadius={1} source={props.avatarUri}/>
+        {/*<Image style={styles.avatar} blurRadius={1} source={props.avatarUri}/>*/}
       </View>
       <Text style={{textAlign:'center', fontSize:12, color:'#374B4C'}}>{props.firstname}</Text>
     </View>
@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
      linear-gradient(180deg, rgba(138, 221, 239, 0.50) 0%, rgba(0, 127, 134, 0.50) 100%)`,
      overflow:'hidden',
     },
-    avatar : {position:'absolute',height:'100%',width:'100%', top:0, left:0,
+    avatar : {position:'absolute',height:66,width:66, top:0, left:0,
     },
 })
