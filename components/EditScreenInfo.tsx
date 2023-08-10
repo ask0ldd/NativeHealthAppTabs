@@ -9,7 +9,7 @@ import { Text, View } from './Themed';
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
-    <View>
+    <View style={{marginTop:30}}>
       <View style={styles.getStartedContainer}>
         <Text
           style={styles.getStartedText}
