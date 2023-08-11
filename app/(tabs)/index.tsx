@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#00000000',
   },
   visitCardContainer:{
-    height:220,
-    marginTop:14,
+    height:260,
+    marginTop:23,
     backgroundColor:'#00000000',
   },
   searchbarContainer:{

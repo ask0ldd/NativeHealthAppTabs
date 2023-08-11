@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import Ratings from './Ratings'
+import { LinearGradient } from 'expo-linear-gradient'
 
 type Props = {}
 
 const SpecialistCard = (props: Props) => {
   return (
-    <View style={styles.card}>
+    <LinearGradient colors={['#FBFDFD', '#E2F5F9']} style={styles.card}>
         <Image style={{opacity:0.93, alignSelf:'flex-end', marginLeft:10}} source={require('../assets/avatars/oliver_avatar.png')}/>
         <View style={styles.infosContainer}>
           <Text style={{color:'#374B4C', fontSize: 16, marginTop:24}}>Dr Oliver SYKES</Text>
@@ -23,22 +24,26 @@ const SpecialistCard = (props: Props) => {
             </View>
           </View>
           <Pressable style={styles.appointmentButton}>
-              <Text style={{fontSize:12, color:'#fff', marginTop:8}}>Apppointment</Text>
+            <LinearGradient style={styles.appointmentButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
+              <Text style={{fontSize:12, color:'#fff'}}>Apppointment</Text>
+            </LinearGradient>
           </Pressable>
         </View>
-    </View>
+    </LinearGradient>
   )
 }
 
 const styles = StyleSheet.create({
     card : {
         width:312,
-        // can only stack linear-gradients, so needs to convert plain colors into constant linear gradients
-        backgroundImage : 'linear-gradient(180deg, rgba(125,215,237,0) 33%, rgba(125,215,237,0.2) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%)',
         height:200,
         borderRadius:20,
-        boxShadow:'0 8px 16px rgba(35, 190, 227, 0.45), 0 2px 4px rgba(92, 169, 188, 0.15)',
         flexDirection:'row',
+        overflow:'hidden',
+        shadowColor:'#23BEE3',
+        // backgroundColor:'#ffffffaa',
+        elevation:15,
+        backgroundColor:'red'
     },
     infosContainer : {
       height:'100%',
@@ -53,13 +58,18 @@ const styles = StyleSheet.create({
     },
     appointmentButton : {
       borderRadius: 6,
-      backgroundImage: 'linear-gradient(180deg, rgba(46, 174, 204, 0.00) 52.60%, #00A6CD 100%), linear-gradient(180deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 61.46%), linear-gradient(180deg, rgba(35, 190, 227, 0.80) 0%, rgba(35, 190, 227, 0.80) 100%)',
-      boxShadow: '0px 8px 16px 0px rgba(57, 197, 230, 0.60)',
       justifyContent:'center',
       alignItems:'center',
-      paddingBottom: 12,
-      paddingTop: 4,
       marginTop:10,
+      shadowColor:'#23BEE3',
+      elevation:20,
+    },
+    appointmentButtonGradient : {
+      height:36, 
+      width:144,
+      justifyContent:'center',
+      alignItems:'center',
+      borderRadius:6,
     }
 })
 
