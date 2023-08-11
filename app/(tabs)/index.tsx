@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   specialistsContainer:{
     height:98,
-    marginTop:10,
+    marginTop:20,
     backgroundColor:'#00000000',
   },
   visitCardContainer:{
