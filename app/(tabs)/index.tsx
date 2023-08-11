@@ -6,6 +6,7 @@ import Card from '../../components/Card';
 import { LinearGradient } from 'expo-linear-gradient'
 import Speciality from '../../components/Speciality';
 import { Link } from 'expo-router';
+import SpecialistCard from '../../components/SpecialistCard';
 
 export default function TabOneScreen() {
   return (
@@ -39,13 +40,23 @@ export default function TabOneScreen() {
       </View>
       <View style={styles.searchbarContainer}>
         <View style={styles.searchBar}>
-          <Text style={{fontSize:14, color:'#93AEB5',}}>Search for a Specialist Close to You</Text>
+          <Text style={{fontSize:14, color:'#93AEB5',}}>Search for a Professional</Text>
         </View>
         <Link href="/modal" asChild>
           <Pressable style={styles.searchOptions}>
             <Image source={require('../../assets/icons/settings.png')}/>
           </Pressable>
         </Link>
+      </View>
+      <View style={{flexDirection:'row', marginTop:50, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
+          <Text style={{color:'#415556', fontSize:20}}>Recommanded For You</Text>
+          <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline'}}>See More</Text>
+      </View>
+      <View style={styles.visitCardContainer}>
+              <ScrollView horizontal={true} contentContainerStyle={{columnGap: 24, paddingLeft:16, paddingRight:16, paddingBottom:20}}>
+                <SpecialistCard/>
+                <SpecialistCard/>
+              </ScrollView>
       </View>
       {/*<EditScreenInfo path="app/(tabs)/index.tsx" />*/}
     </LinearGradient>
