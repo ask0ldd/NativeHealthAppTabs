@@ -4,6 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient'
 
 type Props = {}
 
+// <View style={{height:200, borderRadius:20, elevation:0, shadowColor:'#5CA9BCFF', backgroundColor:'red'}}>
+
 const SpecialistCard = (props: Props) => {
   return (
     <LinearGradient colors={['#FCFEFE', '#E2F5F9']} style={styles.card}>

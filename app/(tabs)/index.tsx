@@ -1,6 +1,5 @@
 import { Image, ScrollView, StyleSheet, Pressable, TextInput } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import Card from '../../components/Card';
 import { LinearGradient } from 'expo-linear-gradient'
@@ -14,7 +13,7 @@ export default function TabOneScreen() {
   const [searchInputValue, setSearchInputValue]= useState<string>("Search for a Professional")
 
   return (
-    <LinearGradient colors={['#B9EFF3','#EDF5F7']}style={styles.container}>
+    <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
       <Image style={{position:'absolute', top:90, left:-120,}} source={require('../../assets/bgpattern.png')}/>
       <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
           <Text style={{color:'#415556', fontSize:20}}>Your Practitioners</Text>
@@ -59,7 +58,7 @@ export default function TabOneScreen() {
       </View>
       <View style={styles.visitCardContainer}>
               <ScrollView horizontal={true} contentContainerStyle={{columnGap: 24, paddingLeft:16, paddingRight:16, paddingBottom:20}}>
-                <SpecialistCard/>
+                <Link href="/appointment"><SpecialistCard/></Link>
                 <SpecialistCard/>
               </ScrollView>
       </View>
