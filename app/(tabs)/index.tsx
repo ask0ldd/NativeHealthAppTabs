@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Pressable } from 'react-native';
+import { Image, ScrollView, StyleSheet, Pressable, TextInput } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
@@ -7,8 +7,12 @@ import { LinearGradient } from 'expo-linear-gradient'
 import Speciality from '../../components/Speciality';
 import { Link } from 'expo-router';
 import SpecialistCard from '../../components/SpecialistCard';
+import { useState } from 'react';
 
 export default function TabOneScreen() {
+
+  const [searchInputValue, setSearchInputValue]= useState<string>("Search for a Professional")
+
   return (
     <LinearGradient colors={['#B9EFF3','#EDF5F7']}style={styles.container}>
       <Image style={{position:'absolute', top:90, left:-120,}} source={require('../../assets/bgpattern.png')}/>
@@ -26,7 +30,7 @@ export default function TabOneScreen() {
             <Card text={'ddd'} firstname="Olga" avatarUri={require('../../assets/avatars/olga_avatar.png')}/>
           </ScrollView>
       </View>
-      <View style={{flexDirection:'row', marginTop:30, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
+      <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
           <Text style={{color:'#415556', fontSize:20}}>Specialists around You</Text>
       </View>
       <View style={styles.specialistsContainer}>
@@ -41,7 +45,7 @@ export default function TabOneScreen() {
       </View>
       <View style={styles.searchbarContainer}>
         <View style={styles.searchBar}>
-          <Text style={{fontSize:14, color:'#93AEB5',}}>Search for a Professional</Text>
+          <TextInput style={{fontSize:14, color:'#93AEB5',}} value={searchInputValue} onChangeText={text => setSearchInputValue(text)}/>
         </View>
         <Link href="/modal" asChild>
           <Pressable style={styles.searchOptions}>
@@ -49,7 +53,7 @@ export default function TabOneScreen() {
           </Pressable>
         </Link>
       </View>
-      <View style={{flexDirection:'row', marginTop:50, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
+      <View style={{flexDirection:'row', marginTop:35, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
           <Text style={{color:'#415556', fontSize:20}}>Recommanded For You</Text>
           <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline'}}>See More</Text>
       </View>
