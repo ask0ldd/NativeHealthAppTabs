@@ -4,6 +4,7 @@ import { Text, View } from '../../components/Themed';
 import { LinearGradient } from 'expo-linear-gradient'
 import { Link } from 'expo-router';
 import { useState } from 'react';
+import Ratings from '../../components/Ratings';
 
 export default function AppointmentScreen() {
 
@@ -17,7 +18,19 @@ export default function AppointmentScreen() {
             <Pressable style={styles.buttons}></Pressable>
         </View>
         <LinearGradient colors={['#FCFEFE', '#E2F5F9']} style={styles.card}>
-
+            <Image style={{position: 'absolute', left: '35%', top:0 }} source={require('../../assets/heartbgpattern.png')} />
+            <View style={{position:'absolute', borderColor:'#10A5C7', borderWidth:1, borderStyle:'dashed', top:'50%', width:'100%', opacity:0.3}}/>
+            <Image style={{opacity: 0.93, position: 'absolute', alignSelf: 'flex-end', right:16, bottom:0}} source={require('../../assets/avatars/oliver_avatar.png')}/>
+            <Text style={{color: '#374B4C', fontSize: 16, marginTop: 16}}>Dr Oliver SYKES</Text>
+            <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 12, marginTop: 6}}>HEAR SURGEON</Text>
+            <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 8, marginTop: 9, backgroundColor:'#00000000'}}>
+                <Ratings rating={5}/>
+                <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 12}}>(22 Reviews)</Text>
+            </View>
+            <Image style={{marginTop:32}} source={require('../../assets/mayo_blason.png')}/>
+            <View style={{flexDirection:'row', backgroundColor:'#00000000'}}>
+                <Image source={require('../../assets/icons/localisation_icon.png')}/>
+            </View>
         </LinearGradient>
       </View>
     </LinearGradient>
@@ -49,6 +62,7 @@ const styles = StyleSheet.create({
     shadowColor:'#23BEE3',
     elevation:12,
     shadowOpacity:1,
+    paddingLeft:18,
   },
   buttonsContainer:{
     height:200,
