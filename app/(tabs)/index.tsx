@@ -1,10 +1,11 @@
-import { ScrollView, StyleSheet } from 'react-native';
+import { Image, ScrollView, StyleSheet, Pressable } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import Card from '../../components/Card';
 import { LinearGradient } from 'expo-linear-gradient'
 import Speciality from '../../components/Speciality';
+import { Link } from 'expo-router';
 
 export default function TabOneScreen() {
   return (
@@ -14,7 +15,7 @@ export default function TabOneScreen() {
           <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline'}}>See More</Text>
       </View>
       <View style={styles.practitionersContainer}>
-          <ScrollView horizontal={true} contentContainerStyle={{columnGap: 16, paddingLeft:16, paddingRight:16, paddingBottom:20, backgroundColor:'#00000000'}}>
+          <ScrollView horizontal={true} contentContainerStyle={{columnGap: 16, paddingHorizontal:16, paddingBottom:20, backgroundColor:'#00000000'}}>
             <Card text={'aaa'} firstname="Connie" avatarUri={require('../../assets/avatars/connie_avatar.png')}/>
             <Card text={'bbb'} firstname="Olga" avatarUri={require('../../assets/avatars/olga_avatar.png')}/>
             <Card text={'ccc'} firstname="Usman" avatarUri={require('../../assets/avatars/usman_avatar.png')}/>
@@ -36,7 +37,17 @@ export default function TabOneScreen() {
             <Speciality speciality="Dermato" specialityIconUri={require('../../assets/icons/tooth.png')}/>
           </ScrollView>
       </View>
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <View style={styles.searchbarContainer}>
+        <View style={styles.searchBar}>
+          <Text style={{fontSize:14, color:'#93AEB5',}}>Search for a Specialist Close to You</Text>
+        </View>
+        <Link href="/modal" asChild>
+          <Pressable style={styles.searchOptions}>
+            <Image source={require('../../assets/icons/settings.png')}/>
+          </Pressable>
+        </Link>
+      </View>
+      {/*<EditScreenInfo path="app/(tabs)/index.tsx" />*/}
     </LinearGradient>
   );
 }
@@ -60,6 +71,36 @@ const styles = StyleSheet.create({
     height:220,
     marginTop:14,
     backgroundColor:'#00000000',
+  },
+  searchbarContainer:{
+    height:42,
+    backgroundColor:'#00000000',
+    paddingHorizontal:16,
+    marginTop:10,
+    flexDirection:'row',
+    columnGap:16,
+  },
+  searchBar:{
+    height:42,
+    width:'auto',
+    flex:1,
+    backgroundColor:'#FFFFFFDD',
+    borderRadius:8,
+    borderWidth:1,
+    borderColor:'#A5E3EC',
+    flexDirection:'row',
+    alignItems:'center',
+    paddingHorizontal:14,
+  },
+  searchOptions:{
+    height:42,
+    width:42,
+    backgroundColor:'#FFFFFFBB',
+    borderRadius:8,
+    justifyContent:'center',
+    alignItems:'center',
+    shadowColor:'#39C5E6ff',
+    elevation:10,
   }
   /*title: {
     fontSize: 20,
