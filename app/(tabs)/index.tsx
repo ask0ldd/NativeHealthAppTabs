@@ -11,6 +11,7 @@ import SpecialistCard from '../../components/SpecialistCard';
 export default function TabOneScreen() {
   return (
     <LinearGradient colors={['#B9EFF3','#EDF5F7']}style={styles.container}>
+      <Image style={{position:'absolute', top:90, left:-120,}} source={require('../../assets/bgpattern.png')}/>
       <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
           <Text style={{color:'#415556', fontSize:20}}>Your Practitioners</Text>
           <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline'}}>See More</Text>
