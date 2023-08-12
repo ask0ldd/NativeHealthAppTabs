@@ -29,7 +29,7 @@ const SpecialistCard = (props: Props) => {
           </View>
           <Pressable style={styles.appointmentButton}>
             <LinearGradient style={styles.appointmentButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
-              <Text style={{fontSize: 12, color: '#fff'}}>Apppointment</Text>
+              <Text style={{fontSize: 12, color: '#fff'}}>Appointment</Text>
             </LinearGradient>
           </Pressable>
         </View>

@@ -6,8 +6,11 @@ import { Link } from 'expo-router';
 import { useMemo, useRef, useState } from 'react';
 import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
+import TimeSlotButton from '../../components/TimeSlotButton';
 
 export default function AppointmentScreen() {
+
+  const Timeslots = ["AM 09h00", "AM 10h00", "AM 11h00", "PM 13h00", "PM 14h00", "PM 15h00", "PM 16h00", "PM 17h00"]
 
   const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
 
@@ -16,6 +19,7 @@ export default function AppointmentScreen() {
   const currentDate = useMemo <Date>(() => new Date(), [])
   const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }), [currentDate])
   const [ activeDate, setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' })}) // curent date
+  const [ activeTimeSlot, setActiveTimeSlot ] = useState<string>(Timeslots[3])
 
   return (
     <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
@@ -54,6 +58,11 @@ export default function AppointmentScreen() {
             {Array.from({ length: 31 }, (_, index) => (<DateButton key={'dbkey'+index} screenWidth={screenWidth} scrollView={scrollView} activeDate={activeDate} setActiveDate={setActiveDate} month={currentMonth} day={index+1} /*active={index+1 === activeDate.day && currentMonth === activeDate.month ? true : false}*//>))}
         </ScrollView>
       </View>
+      <View style={{height:56, marginTop:5, overflow:'visible', backgroundColor:'#00000000'}}>
+        <ScrollView ref={scrollView} horizontal={true} contentContainerStyle={{height:56, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
+            {Timeslots.map((slot, index) => (<TimeSlotButton activeTimeSlot={activeTimeSlot} setActiveTimeSlot={setActiveTimeSlot} key={'tskey'+index} slot={slot}/>))}
+        </ScrollView>
+      </View>
     </LinearGradient>
   );
 }
@@ -83,7 +92,6 @@ const styles = StyleSheet.create({
     shadowColor:'#23BEE3',
     elevation:12,
     shadowOpacity:1,
-    //paddingLeft:18,
   },
   buttonsContainer:{
     height:200,
