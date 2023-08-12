@@ -8,7 +8,7 @@ import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
 import TimeSlotButton from '../../components/TimeSlotButton';
 
-export const Timeslots = ["AM 09h00", "AM 10h00", "AM 11h00", "PM 13h00", "PM 14h00", "PM 15h00", "PM 16h00", "PM 17h00"]
+const Timeslots : Array<string> = ["AM 09h00", "AM 10h00", "AM 11h00", "PM 13h00", "PM 14h00", "PM 15h00", "PM 16h00", "PM 17h00", "PM 18h00"]
 
 export default function AppointmentScreen() {
 
@@ -61,7 +61,7 @@ export default function AppointmentScreen() {
       </View>
       <View style={{height:56, marginTop:5, overflow:'visible', backgroundColor:'#00000000'}}>
         <ScrollView ref={scrollViewTimeSlot} horizontal={true} contentContainerStyle={{height:56, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
-            {Timeslots.map((slot, index) => (<TimeSlotButton activeTimeSlot={activeTimeSlot} scrollView={scrollViewTimeSlot} setActiveTimeSlot={setActiveTimeSlot} key={'tskey'+index} slot={slot}/>))}
+            {Timeslots.map((slot, index) => (<TimeSlotButton activeTimeSlot={activeTimeSlot} timeSlotsList={Timeslots} scrollView={scrollViewTimeSlot} setActiveTimeSlot={setActiveTimeSlot} key={'tskey'+index} slot={slot}/>))}
         </ScrollView>
       </View>
     </LinearGradient>

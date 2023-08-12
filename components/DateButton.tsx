@@ -1,5 +1,5 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React, { useRef } from 'react'
+import React, { useEffect } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import { CapitalizeFirstLetter } from '../services/string'
 import { IActiveDate } from '../app/appointment'
@@ -16,14 +16,14 @@ type Props = {
 
 const DateButton = ({day, month, screenWidth, scrollView, activeDate, setActiveDate} : Props) => {
 
-    // useEffect(() => scrollView.current?.scrollTo({x:}), [activeDate])
+    useEffect(() => {scrollView.current?.scrollTo({x: (activeDate.day)*(16+52)-screenWidth/2-26})}, [activeDate])
 
     const active = JSON.stringify(activeDate) === JSON.stringify({day:day, month:month})
 
     return (
         <Pressable style={active ? styles.activeDateButton : styles.inactiveDateButton} onPress={() => {
             setActiveDate({day: day, month:month})
-            scrollView.current?.scrollTo({x: (day)*(16+52)-((screenWidth)/2)-26})
+            // scrollView.current?.scrollTo({x: (day)*(16+52)-screenWidth/2-26})
         }}>
             <LinearGradient style={active ? styles.activeDateButtonGradient : styles.inactiveDateButtonGradient} colors={active ? ['#68D2EA', '#5BB3C9'] : ['#FFFFFFFF', '#FFFFFFAA']} start={{x:1, y:0}} end={{x:1, y:1}}>
                 <Text style={{backgroundColor:'#00000000', fontSize:10, marginTop:2}}>{CapitalizeFirstLetter(month)}</Text>
