@@ -43,14 +43,14 @@ export default function AppointmentScreen() {
       </View>
       <View style={{height:92, marginTop:20, paddingHorizontal:16, overflow:'visible', backgroundColor:'#00000000'}}>
         <ScrollView horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingRight:16,}}>
-            <DateButton/>
-            <DateButton/>
-            <DateButton/>
-            <DateButton/>
-            <DateButton/>
-            <DateButton/>
-            <DateButton/>
-            <DateButton/>
+            <DateButton month="apr" day={9} active={true}/>
+            <DateButton month="apr" day={10} active={true}/>
+            <DateButton month="apr" day={11} active={true}/>
+            <DateButton month="apr" day={12} active={true}/>
+            <DateButton month="apr" day={13} active={true}/>
+            <DateButton month="apr" day={14} active={true}/>
+            <DateButton month="apr" day={15} active={true}/>
+            <DateButton month="apr" day={16} active={true}/>
         </ScrollView>
       </View>
     </LinearGradient>
