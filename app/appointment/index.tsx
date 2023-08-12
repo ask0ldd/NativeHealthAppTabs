@@ -20,7 +20,7 @@ export default function AppointmentScreen() {
         </View>
         <LinearGradient colors={['#FCFEFE', '#E2F5F9']} style={styles.card}>
             <Image style={{position: 'absolute', left: '35%', top:0 }} source={require('../../assets/heartbgpattern.png')} />
-            <View style={{position:'absolute', borderColor:'#10A5C7', borderWidth:1, borderStyle:'dashed', top:'50%', width:'100%', opacity:0.3}}/>
+            <View style={{position:'absolute', borderColor:'#10A5C7', borderTopWidth:0, borderBottomWidth:1, borderStyle:'dashed', top:'50%', width:'100%', opacity:0.3}}/>
             <Image style={{opacity: 0.93, position: 'absolute', alignSelf: 'flex-end', right:16, bottom:0}} source={require('../../assets/avatars/oliver_avatar.png')}/>
             <Text style={{color: '#374B4C', fontSize: 16, marginTop: 16, marginLeft:18}}>Dr Oliver SYKES</Text>
             <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 12, marginTop: 4, marginLeft:18}}>HEAR SURGEON</Text>
@@ -43,14 +43,14 @@ export default function AppointmentScreen() {
       </View>
       <View style={{height:92, marginTop:20, paddingHorizontal:16, overflow:'visible', backgroundColor:'#00000000'}}>
         <ScrollView horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingRight:16,}}>
-            <DateButton month="apr" day={9} active={true}/>
-            <DateButton month="apr" day={10} active={true}/>
+            <DateButton month="apr" day={9} active={false}/>
+            <DateButton month="apr" day={10} active={false}/>
             <DateButton month="apr" day={11} active={true}/>
-            <DateButton month="apr" day={12} active={true}/>
-            <DateButton month="apr" day={13} active={true}/>
-            <DateButton month="apr" day={14} active={true}/>
-            <DateButton month="apr" day={15} active={true}/>
-            <DateButton month="apr" day={16} active={true}/>
+            <DateButton month="apr" day={12} active={false}/>
+            <DateButton month="apr" day={13} active={false}/>
+            <DateButton month="apr" day={14} active={false}/>
+            <DateButton month="apr" day={15} active={false}/>
+            <DateButton month="apr" day={16} active={false}/>
         </ScrollView>
       </View>
     </LinearGradient>

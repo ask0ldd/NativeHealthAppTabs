@@ -10,7 +10,7 @@ const SpecialistCard = (props: Props) => {
   return (
     <LinearGradient colors={['#FCFEFE', '#E2F5F9']} style={styles.card}>
         <Image style={{position: 'absolute', left: '35%', top:0 }} source={require('../assets/heartbgpattern.png')} />
-        <View style={{position:'absolute', borderColor:'#10A5C7', borderWidth:1, borderStyle:'dashed', top:'50%', right:0, width:'80%', opacity:0.3}}/>
+        <View style={{position:'absolute', borderColor:'#10A5C7FF', borderTopWidth:0, borderBottomWidth:1, borderStyle:'dashed', top:'50%', right:0, width:'80%', opacity:0.3}}/>
         <Image style={{opacity: 0.93, alignSelf: 'flex-end', marginLeft: 10}} source={require('../assets/avatars/oliver_avatar.png')}/>
         <View style={styles.infosContainer}>
           <Text style={{color: '#374B4C', fontSize: 16, marginTop: 24}}>Dr Oliver SYKES</Text>
