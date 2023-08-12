@@ -1,13 +1,21 @@
-import { Image, ScrollView, StyleSheet, Pressable, TextInput } from 'react-native';
+import { Image, ScrollView, StyleSheet, Pressable, TextInput, Dimensions } from 'react-native';
 
 import { Text, View } from '../../components/Themed';
 import { LinearGradient } from 'expo-linear-gradient'
 import { Link } from 'expo-router';
-import { useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
 
 export default function AppointmentScreen() {
+
+  const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
+
+  const scrollView = useRef<ScrollView|null>(null)
+
+  const currentDate = useMemo <Date>(() => new Date(), [])
+  const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }), [currentDate])
+  const [ activeDate, setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' })}) // curent date
 
   return (
     <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
@@ -41,23 +49,9 @@ export default function AppointmentScreen() {
       <View style={{flexDirection:'row', marginTop:10, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
           <Text style={{color:'#415556', fontSize:20}}>Make an Appointment</Text>
       </View>
-      <View style={{height:92, marginTop:20, paddingHorizontal:16, overflow:'visible', backgroundColor:'#00000000'}}>
-        <ScrollView horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingRight:16,}}
-            decelerationRate={0}
-            snapToInterval={70}
-            pagingEnabled
-            snapToOffsets={[0, 70, 140, 210, 280, 350]}
-        >
-            <DateButton month="apr" day={7} active={false}/>
-            <DateButton month="apr" day={8} active={false}/>
-            <DateButton month="apr" day={9} active={false}/>
-            <DateButton month="apr" day={10} active={false}/>
-            <DateButton month="apr" day={11} active={true}/>
-            <DateButton month="apr" day={12} active={false}/>
-            <DateButton month="apr" day={13} active={false}/>
-            <DateButton month="apr" day={14} active={false}/>
-            <DateButton month="apr" day={15} active={false}/>
-            <DateButton month="apr" day={16} active={false}/>
+      <View style={{height:92, marginTop:20, overflow:'visible', backgroundColor:'#00000000'}}>
+        <ScrollView ref={scrollView} horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
+            {Array.from({ length: 31 }, (_, index) => (<DateButton key={'dbkey'+index} screenWidth={screenWidth} scrollView={scrollView} setActiveDate={setActiveDate} month={currentMonth} day={index+1} active={index+1 === activeDate.day && currentMonth === activeDate.month ? true : false}/>))}
         </ScrollView>
       </View>
     </LinearGradient>
@@ -122,17 +116,9 @@ const styles = StyleSheet.create({
     borderColor:'#fff',
     shadowColor:'#39C5E6ff',
   },
-  /*activeDateButton:{
-    height:72,
-    width:54,
-    borderRadius:6,
-    backgroundColor:'rgba(35, 190, 227, 0.6)',
-    justifyContent:'center',
-    alignItems:'center',
-    borderWidth:1,
-    borderColor:'#fff',
-    shadowColor:'#39C5E6ff',
-    elevation:10,
-}*/
+})
 
-});
+export interface IActiveDate{
+  day:number
+  month:string
+}
