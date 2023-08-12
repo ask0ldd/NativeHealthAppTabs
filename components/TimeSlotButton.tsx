@@ -1,23 +1,26 @@
-import { Dimensions, Pressable, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import { CapitalizeFirstLetter } from '../services/string'
+import { Timeslots } from '../app/appointment'
 
 type Props = {
     slot : string
     setActiveTimeSlot : (timeslot : string) => void
+    scrollView : React.MutableRefObject<ScrollView | null>
     activeTimeSlot : string
 }
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
 
-const TimeSlotButton = ({slot, activeTimeSlot, setActiveTimeSlot}: Props) => {
+const TimeSlotButton = ({slot, scrollView, activeTimeSlot, setActiveTimeSlot}: Props) => {
 
     const active = slot == activeTimeSlot
 
     return (
         <Pressable style={active ? styles.activeTimeSlotButton : styles.inactiveTimeSlotButton} onPress={() => {
             setActiveTimeSlot(slot)
+            scrollView.current?.scrollTo({x: (Timeslots.indexOf(slot)-1)*(16+((screenWidth - 4*16)/3))})
         }}>
             <LinearGradient style={active ? styles.activeTimeSlotButtonGradient : styles.inactiveTimeSlotButtonGradient} colors={active ? ['#68D2EA', '#5BB3C9'] : ['#FFFFFFFF', '#FFFFFFAA']} start={{x:1, y:0}} end={{x:1, y:1}}>
                 <Text style={{backgroundColor:'#00000000', fontSize:12}}>{slot}</Text>

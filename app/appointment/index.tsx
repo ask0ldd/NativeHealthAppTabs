@@ -8,13 +8,14 @@ import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
 import TimeSlotButton from '../../components/TimeSlotButton';
 
-export default function AppointmentScreen() {
+export const Timeslots = ["AM 09h00", "AM 10h00", "AM 11h00", "PM 13h00", "PM 14h00", "PM 15h00", "PM 16h00", "PM 17h00"]
 
-  const Timeslots = ["AM 09h00", "AM 10h00", "AM 11h00", "PM 13h00", "PM 14h00", "PM 15h00", "PM 16h00", "PM 17h00"]
+export default function AppointmentScreen() {
 
   const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
 
-  const scrollView = useRef<ScrollView|null>(null)
+  const scrollViewDate = useRef<ScrollView|null>(null)
+  const scrollViewTimeSlot = useRef<ScrollView|null>(null)
 
   const currentDate = useMemo <Date>(() => new Date(), [])
   const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }), [currentDate])
@@ -54,13 +55,13 @@ export default function AppointmentScreen() {
           <Text style={{color:'#415556', fontSize:20}}>Make an Appointment</Text>
       </View>
       <View style={{height:92, marginTop:20, overflow:'visible', backgroundColor:'#00000000'}}>
-        <ScrollView ref={scrollView} horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
-            {Array.from({ length: 31 }, (_, index) => (<DateButton key={'dbkey'+index} screenWidth={screenWidth} scrollView={scrollView} activeDate={activeDate} setActiveDate={setActiveDate} month={currentMonth} day={index+1} /*active={index+1 === activeDate.day && currentMonth === activeDate.month ? true : false}*//>))}
+        <ScrollView ref={scrollViewDate} horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
+            {Array.from({ length: 31 }, (_, index) => (<DateButton key={'dbkey'+index} screenWidth={screenWidth} scrollView={scrollViewDate} activeDate={activeDate} setActiveDate={setActiveDate} month={currentMonth} day={index+1} /*active={index+1 === activeDate.day && currentMonth === activeDate.month ? true : false}*//>))}
         </ScrollView>
       </View>
       <View style={{height:56, marginTop:5, overflow:'visible', backgroundColor:'#00000000'}}>
-        <ScrollView ref={scrollView} horizontal={true} contentContainerStyle={{height:56, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
-            {Timeslots.map((slot, index) => (<TimeSlotButton activeTimeSlot={activeTimeSlot} setActiveTimeSlot={setActiveTimeSlot} key={'tskey'+index} slot={slot}/>))}
+        <ScrollView ref={scrollViewTimeSlot} horizontal={true} contentContainerStyle={{height:56, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
+            {Timeslots.map((slot, index) => (<TimeSlotButton activeTimeSlot={activeTimeSlot} scrollView={scrollViewTimeSlot} setActiveTimeSlot={setActiveTimeSlot} key={'tskey'+index} slot={slot}/>))}
         </ScrollView>
       </View>
     </LinearGradient>
