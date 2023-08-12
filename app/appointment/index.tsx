@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { Link } from 'expo-router';
 import { useState } from 'react';
 import Ratings from '../../components/Ratings';
+import DateButton from '../../components/DateButton';
 
 export default function AppointmentScreen() {
 
@@ -40,11 +41,17 @@ export default function AppointmentScreen() {
       <View style={{flexDirection:'row', marginTop:10, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
           <Text style={{color:'#415556', fontSize:20}}>Make an Appointment</Text>
       </View>
-      <View style={{flexDirection:'row', columnGap:18, height:72, backgroundColor:'#00000000', marginTop:20, paddingHorizontal:16}}>
-        <Pressable style={styles.activeDateButton}>
-            <LinearGradient style={{width:54, height:72, justifyContent:'center', alignItems:'center'}} colors={['#ffffff44', 'transparent']} start={{x:1, y:0}} end={{x:0.2, y:0.8}}>
-            </LinearGradient>
-        </Pressable>
+      <View style={{height:92, marginTop:20, paddingHorizontal:16, overflow:'visible', backgroundColor:'#00000000'}}>
+        <ScrollView horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingRight:16,}}>
+            <DateButton/>
+            <DateButton/>
+            <DateButton/>
+            <DateButton/>
+            <DateButton/>
+            <DateButton/>
+            <DateButton/>
+            <DateButton/>
+        </ScrollView>
       </View>
     </LinearGradient>
   );
@@ -108,7 +115,7 @@ const styles = StyleSheet.create({
     borderColor:'#fff',
     shadowColor:'#39C5E6ff',
   },
-  activeDateButton:{
+  /*activeDateButton:{
     height:72,
     width:54,
     borderRadius:6,
@@ -119,6 +126,6 @@ const styles = StyleSheet.create({
     borderColor:'#fff',
     shadowColor:'#39C5E6ff',
     elevation:10,
-}
+}*/
 
 });
