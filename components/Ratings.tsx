@@ -7,7 +7,7 @@ type Props = {
 
 const Ratings = (props: Props) => {
   return (
-    <View style={{flexDirection:'row', columnGap:3}}>
+    <View style={{flexDirection:'row', alignItems:'center', marginTop:2, columnGap:3}}>
         {
             // JSX for loop eq
             Array.from({ length: props.rating }, (_, index) => (

@@ -17,7 +17,7 @@ const Card = (props: Props) => {
         <Image style={[styles.avatar, {zIndex:3}]} source={props.avatarUri}/>
         {/*<Image style={styles.avatar} blurRadius={1} source={props.avatarUri}/>*/}
       </LinearGradient>
-      <Text style={{textAlign:'center', fontSize:12, color:'#374B4C'}}>{props.firstname}</Text>
+      <Text style={{textAlign:'center', fontSize:12, color:'#374B4C', fontFamily:'Montserrat_600SemiBold'}}>{props.firstname}</Text>
     </View>
   )
 }

@@ -14,7 +14,7 @@ const Speciality = (props: Props) => {
                 <Image style={styles.icon} source={props.specialityIconUri}/>
             </LinearGradient>
         </View>
-        <Text style={{textAlign:'center', fontSize:12, color:'#374B4C'}}>
+        <Text style={{textAlign:'center', fontSize:12, color:'#374B4C', fontFamily:'Montserrat_600SemiBold'}}>
             {props.speciality}
         </Text>
     </View>

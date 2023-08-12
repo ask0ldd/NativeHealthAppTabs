@@ -16,7 +16,7 @@ export default function TabOneScreen() {
     <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
       <Image style={{position:'absolute', top:90, left:-120,}} source={require('../../assets/bgpattern.png')}/>
       <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-          <Text style={{color:'#415556', fontSize:20}}>Your Practitioners</Text>
+          <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Your Practitioners</Text>
           <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline'}}>See More</Text>
       </View>
       <View style={styles.practitionersContainer}>
@@ -30,7 +30,7 @@ export default function TabOneScreen() {
           </ScrollView>
       </View>
       <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-          <Text style={{color:'#415556', fontSize:20}}>Specialists around You</Text>
+          <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
       </View>
       <View style={styles.specialistsContainer}>
           <ScrollView horizontal={true} contentContainerStyle={{columnGap: 16, paddingHorizontal:16, paddingBottom:20}}>
@@ -44,7 +44,7 @@ export default function TabOneScreen() {
       </View>
       <View style={styles.searchbarContainer}>
         <View style={styles.searchBar}>
-          <TextInput style={{fontSize:14, color:'#93AEB5',}} value={searchInputValue} onChangeText={text => setSearchInputValue(text)}/>
+          <TextInput style={{fontSize:14, color:'#93AEB5', fontFamily:'Montserrat_500Medium'}} value={searchInputValue} onChangeText={text => setSearchInputValue(text)}/>
         </View>
         <Link href="/modal" asChild>
           <Pressable style={styles.searchOptions}>
@@ -53,7 +53,7 @@ export default function TabOneScreen() {
         </Link>
       </View>
       <View style={{flexDirection:'row', marginTop:35, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-          <Text style={{color:'#415556', fontSize:20}}>Recommanded For You</Text>
+          <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Recommanded For You</Text>
           <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline'}}>See More</Text>
       </View>
       <View style={styles.visitCardContainer}>
