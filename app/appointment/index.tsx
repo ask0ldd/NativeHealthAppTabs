@@ -51,7 +51,7 @@ export default function AppointmentScreen() {
       </View>
       <View style={{height:92, marginTop:20, overflow:'visible', backgroundColor:'#00000000'}}>
         <ScrollView ref={scrollView} horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
-            {Array.from({ length: 31 }, (_, index) => (<DateButton key={'dbkey'+index} screenWidth={screenWidth} scrollView={scrollView} setActiveDate={setActiveDate} month={currentMonth} day={index+1} active={index+1 === activeDate.day && currentMonth === activeDate.month ? true : false}/>))}
+            {Array.from({ length: 31 }, (_, index) => (<DateButton key={'dbkey'+index} screenWidth={screenWidth} scrollView={scrollView} activeDate={activeDate} setActiveDate={setActiveDate} month={currentMonth} day={index+1} /*active={index+1 === activeDate.day && currentMonth === activeDate.month ? true : false}*//>))}
         </ScrollView>
       </View>
     </LinearGradient>

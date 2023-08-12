@@ -5,20 +5,25 @@ import { CapitalizeFirstLetter } from '../services/string'
 import { IActiveDate } from '../app/appointment'
 
 type Props = {
-    active : boolean
+    // active : boolean
     month : string // 'jan' | 'feb' | 'mar' | 'apr' | 'may' | 'jun' | 'jul' | 'aug' | 'sep' | 'oct' | 'nov' | 'dec'
     day : number
+    activeDate : IActiveDate
     setActiveDate : (activeDate : IActiveDate) => void
     scrollView : React.MutableRefObject<ScrollView | null>
     screenWidth : number
 }
 
-const DateButton = ({day, month, active, screenWidth, scrollView, setActiveDate} : Props) => {
+const DateButton = ({day, month, screenWidth, scrollView, activeDate, setActiveDate} : Props) => {
+
+    // useEffect(() => scrollView.current?.scrollTo({x:}), [activeDate])
+
+    const active = JSON.stringify(activeDate) === JSON.stringify({day:day, month:month})
 
     return (
         <Pressable style={active ? styles.activeDateButton : styles.inactiveDateButton} onPress={() => {
             setActiveDate({day: day, month:month})
-            scrollView.current?.scrollTo({x: (day-1)*(16+54)-screenWidth/2+41})
+            scrollView.current?.scrollTo({x: (day)*(16+52)-((screenWidth)/2)-26})
         }}>
             <LinearGradient style={active ? styles.activeDateButtonGradient : styles.inactiveDateButtonGradient} colors={active ? ['#68D2EA', '#5BB3C9'] : ['#FFFFFFFF', '#FFFFFFAA']} start={{x:1, y:0}} end={{x:1, y:1}}>
                 <Text style={{backgroundColor:'#00000000'}}>{CapitalizeFirstLetter(month)}</Text>
@@ -34,7 +39,7 @@ export default DateButton
 const styles = StyleSheet.create({
     activeDateButton:{
         height:72,
-        width:54,
+        width:52,
         borderRadius:6,
         //backgroundColor:'rgba(35, 190, 227, 1)',
         justifyContent:'center',
@@ -58,7 +63,7 @@ const styles = StyleSheet.create({
     },
     inactiveDateButton:{
         height:72,
-        width:54,
+        width:52,
         borderRadius:6,
         //backgroundColor:'rgba(35, 190, 227, 1)',
         justifyContent:'center',
