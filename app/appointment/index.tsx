@@ -42,7 +42,14 @@ export default function AppointmentScreen() {
           <Text style={{color:'#415556', fontSize:20}}>Make an Appointment</Text>
       </View>
       <View style={{height:92, marginTop:20, paddingHorizontal:16, overflow:'visible', backgroundColor:'#00000000'}}>
-        <ScrollView horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingRight:16,}}>
+        <ScrollView horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingRight:16,}}
+            decelerationRate={0}
+            snapToInterval={70}
+            pagingEnabled
+            snapToOffsets={[0, 70, 140, 210, 280, 350]}
+        >
+            <DateButton month="apr" day={7} active={false}/>
+            <DateButton month="apr" day={8} active={false}/>
             <DateButton month="apr" day={9} active={false}/>
             <DateButton month="apr" day={10} active={false}/>
             <DateButton month="apr" day={11} active={true}/>
