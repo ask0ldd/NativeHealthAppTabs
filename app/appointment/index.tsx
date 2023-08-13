@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Pressable, TextInput, Dimensions } from 'react-native';
+import { Image, ScrollView, StyleSheet, Pressable, TextInput, Dimensions, KeyboardAvoidingView } from 'react-native';
 
 import { Text, View } from '../../components/Themed';
 import { LinearGradient } from 'expo-linear-gradient'
@@ -21,8 +21,10 @@ export default function AppointmentScreen() {
   const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }), [currentDate])
   const [ activeDate, setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' })}) // curent date
   const [ activeTimeSlot, setActiveTimeSlot ] = useState<string>(Timeslots[3])
+  const [ bookingMessage, setBookingMessage ] = useState<string>()
 
   return (
+    <KeyboardAvoidingView>
     <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
       <Image style={{position:'absolute', top:110, left:-120,}} source={require('../../assets/bgpattern.png')}/>
       <View style={styles.buttonsnCardContainer}>
@@ -35,7 +37,7 @@ export default function AppointmentScreen() {
             </View>
             <Pressable style={styles.blueButtons}>
               <LinearGradient style={{width:42, height:42, justifyContent:'center', alignItems:'center'}} colors={['#ffffff44', 'transparent']} start={{x:1, y:0}} end={{x:0.2, y:0.8}}>
-                <Image style={{marginTop:1}} source={require('../../assets/icons/chat.png')}/>
+                <Image style={{marginTop:2}} source={require('../../assets/icons/chat.png')}/>
               </LinearGradient>
             </Pressable>
         </View>
@@ -72,7 +74,9 @@ export default function AppointmentScreen() {
             {Timeslots.map((slot, index) => (<TimeSlotButton activeTimeSlot={activeTimeSlot} timeSlotsList={Timeslots} scrollView={scrollViewTimeSlot} setActiveTimeSlot={setActiveTimeSlot} key={'tskey'+index} slot={slot}/>))}
         </ScrollView>
       </View>
+      <TextInput style={styles.bookingMessageInput} multiline={true} numberOfLines={8} onChangeText={(text) => setBookingMessage(text)} value={bookingMessage}/>
     </LinearGradient>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -133,6 +137,16 @@ const styles = StyleSheet.create({
     borderWidth:1,
     borderColor:'#fff',
     shadowColor:'#39C5E6ff',
+  },
+  bookingMessageInput:{
+    width:'80%', 
+    alignSelf:'center',
+    borderWidth:1,
+    borderColor:'#A5E3ECFF',
+    backgroundColor:'#FAFDFEFF',
+    borderRadius:10,
+    marginTop:25,
+    paddingLeft:12,
   },
 })
 
