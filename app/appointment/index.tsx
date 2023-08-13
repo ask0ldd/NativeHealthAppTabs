@@ -8,7 +8,7 @@ import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
 import TimeSlotButton from '../../components/TimeSlotButton';
 
-const Timeslots : Array<string> = ["AM 09h00", "AM 10h00", "AM 11h00", "PM 13h00", "PM 14h00", "PM 15h00", "PM 16h00", "PM 17h00", "PM 18h00"]
+const Timeslots : Array<string> = ["09h00 AM", "10h00 AM", "11h00 AM", "13h00 PM", "14h00 PM", "15h00 PM", "16h00 PM", "17h00 PM", "18h00 PM"]
 
 export default function AppointmentScreen() {
 
@@ -35,24 +35,24 @@ export default function AppointmentScreen() {
             <Image style={{position: 'absolute', left: '35%', top:0 }} source={require('../../assets/heartbgpattern.png')} />
             <View style={{position:'absolute', borderColor:'#10A5C7', borderTopWidth:0, borderBottomWidth:1, borderStyle:'dashed', top:'50%', width:'100%', opacity:0.3}}/>
             <Image style={{opacity: 0.93, position: 'absolute', alignSelf: 'flex-end', right:16, bottom:0}} source={require('../../assets/avatars/oliver_avatar.png')}/>
-            <Text style={{color: '#374B4C', fontSize: 16, marginTop: 16, marginLeft:18}}>Dr Oliver SYKES</Text>
-            <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 12, marginTop: 4, marginLeft:18}}>HEAR SURGEON</Text>
+            <Text style={{color: '#374B4C', fontSize: 16, marginTop: 14, marginLeft:18, fontFamily:'Montserrat_700Bold'}}>Dr Oliver SYKES</Text>
+            <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 12, marginTop: 8, marginLeft:18, fontFamily:'Montserrat_600SemiBold'}}>HEAR SURGEON</Text>
             <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 8, marginTop: 14, backgroundColor:'#00000000', marginLeft:18}}>
                 <Ratings rating={5}/>
-                <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 12}}>(22 Reviews)</Text>
+                <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 10, fontFamily:'Montserrat_500Medium'}}>(22 Reviews)</Text>
             </View>
-            <Image style={{marginTop:31, marginLeft:18}} source={require('../../assets/mayo_blason.png')}/>
+            <Image style={{marginTop:33, marginLeft:18}} source={require('../../assets/mayo_blason.png')}/>
             <View style={{flexDirection:'row', backgroundColor:'#00000000', marginTop:14, marginLeft:18, alignItems:'center'}}>
                 <Image source={require('../../assets/icons/localisation_icon.png')}/>
                 <View style={{flexDirection:'column', marginLeft:16, backgroundColor:'#00000000'}}>
-                    <Text style={{fontSize:10, color:'#89A4AB'}}>9500 Euclid Avenue,</Text>
-                    <Text style={{fontSize:10, color:'#89A4AB'}}>Cleveland, OH</Text>
+                    <Text style={{fontSize:10, color:'#89A4AB', fontFamily:'Montserrat_500Medium'}}>9500 Euclid Avenue,</Text>
+                    <Text style={{fontSize:10, color:'#89A4AB', fontFamily:'Montserrat_500Medium'}}>Cleveland, OH</Text>
                 </View>
             </View>
         </LinearGradient>
       </View>
       <View style={{flexDirection:'row', marginTop:10, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-          <Text style={{color:'#415556', fontSize:20}}>Make an Appointment</Text>
+          <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Make an Appointment</Text>
       </View>
       <View style={{height:92, marginTop:20, overflow:'visible', backgroundColor:'#00000000'}}>
         <ScrollView ref={scrollViewDate} horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>

@@ -13,18 +13,20 @@ const SpecialistCard = (props: Props) => {
         <View style={{position:'absolute', borderColor:'#10A5C7FF', borderTopWidth:0, borderBottomWidth:1, borderStyle:'dashed', top:'50%', right:0, width:'80%', opacity:0.3}}/>
         <Image style={{opacity: 0.93, alignSelf: 'flex-end', marginLeft: 10}} source={require('../assets/avatars/oliver_avatar.png')}/>
         <View style={styles.infosContainer}>
-          <Text style={{color: '#374B4C', fontSize: 16, marginTop: 24, fontFamily:'Montserrat_700Bold'}}>Dr Oliver SYKES</Text>
+          <Text style={{color: '#374B4C', fontSize: 16, marginTop: 18, fontFamily:'Montserrat_700Bold'}}>Dr Oliver SYKES</Text>
           <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 12, marginTop: 6, fontFamily:'Montserrat_600SemiBold'}}>HEAR SURGEON</Text>
-          <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 8, marginTop: 6}}>
+          <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 8, marginTop: 12}}>
             <Ratings rating={5}/>
             <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 10, fontFamily:'Montserrat_500Medium'}}>(22 Reviews)</Text>
           </View>
-          <View style={{flexDirection: 'row', columnGap: 8, marginTop: 20}}>
+          <View style={{flexDirection: 'row', columnGap: 8, marginTop: 24}}>
             <View style={styles.colSlot}>
-              <Text style={{fontSize: 10, color: 'rgba(137, 164, 171, 0.9)', fontFamily:'Montserrat_600SemiBold'}}>Free Slot</Text><Text style={{fontSize: 12, color: '#374B4C', marginTop: 8, fontFamily:'Montserrat_700Bold'}}>02-18-2022</Text>
+              <Text style={{fontSize: 10, color: 'rgba(137, 164, 171, 0.9)', fontFamily:'Montserrat_600SemiBold'}}>Free Slot</Text>
+              <Text style={{fontSize: 12, color: '#374B4C', marginTop: 4, fontFamily:'Montserrat_700Bold'}}>02-18-2022</Text>
             </View>
             <View style={styles.colDistance}>
-              <Text style={{fontSize: 10, color: 'rgba(137, 164, 171, 0.9)', fontFamily:'Montserrat_600SemiBold'}}>Distance</Text><Text style={{fontSize: 12, color: '#374B4C', marginTop: 8, fontFamily:'Montserrat_700Bold'}}>2 Miles</Text>
+              <Text style={{fontSize: 10, color: 'rgba(137, 164, 171, 0.9)', fontFamily:'Montserrat_600SemiBold'}}>Distance</Text>
+              <Text style={{fontSize: 12, color: '#374B4C', marginTop: 4, fontFamily:'Montserrat_700Bold'}}>2 Miles</Text>
             </View>
           </View>
           <Pressable style={styles.appointmentButton}>

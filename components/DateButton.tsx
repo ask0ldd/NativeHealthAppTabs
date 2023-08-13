@@ -26,9 +26,9 @@ const DateButton = ({day, month, screenWidth, scrollView, activeDate, setActiveD
             // scrollView.current?.scrollTo({x: (day)*(16+52)-screenWidth/2-26})
         }}>
             <LinearGradient style={active ? styles.activeDateButtonGradient : styles.inactiveDateButtonGradient} colors={active ? ['#68D2EA', '#5BB3C9'] : ['#FFFFFFFF', '#FFFFFFAA']} start={{x:1, y:0}} end={{x:1, y:1}}>
-                <Text style={{backgroundColor:'#00000000', fontSize:10, marginTop:2}}>{CapitalizeFirstLetter(month)}</Text>
-                <View style={[{backgroundColor:'#00000000', width:'40%', height:1, borderTopWidth:0, borderBottomWidth:1, marginTop:7, marginBottom:5}, active ? {borderColor:'#FFFFFFAA'} : {borderColor:'#CAE3EAAA'}]}></View>
-                <Text style={{backgroundColor:'#00000000',  fontSize:16}}>{day}</Text>
+                <Text style={{backgroundColor:'#00000000', fontSize:10, marginTop:1, fontFamily:'Montserrat_500Medium'}}>{CapitalizeFirstLetter(month)}</Text>
+                <View style={[{backgroundColor:'#00000000', width:'40%', height:1, borderTopWidth:0, borderBottomWidth:1, marginTop:9, marginBottom:7}, active ? {borderColor:'#FFFFFFAA'} : {borderColor:'#CAE3EAAA'}]}></View>
+                <Text style={{backgroundColor:'#00000000',  fontSize:16, fontFamily:'Montserrat_600SemiBold'}}>{day}</Text>
             </LinearGradient>
         </Pressable>
     )
@@ -60,6 +60,8 @@ const styles = StyleSheet.create({
         borderWidth:1, 
         borderColor:'#3599B0',
         backgroundColor:'#00000000',
+        borderRadius:5,
+        opacity:0.9,
     },
     inactiveDateButton:{
         height:72,

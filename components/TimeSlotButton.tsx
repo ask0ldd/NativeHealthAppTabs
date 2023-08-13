@@ -24,7 +24,7 @@ const TimeSlotButton = ({slot, scrollView, activeTimeSlot, setActiveTimeSlot, ti
             // scrollView.current?.scrollTo({x: (timeSlotsList.indexOf(slot)-1)*(16+((screenWidth - 4*16)/3))})
         }}>
             <LinearGradient style={active ? styles.activeTimeSlotButtonGradient : styles.inactiveTimeSlotButtonGradient} colors={active ? ['#68D2EA', '#5BB3C9'] : ['#FFFFFFFF', '#FFFFFFAA']} start={{x:1, y:0}} end={{x:1, y:1}}>
-                <Text style={{backgroundColor:'#00000000', fontSize:12}}>{slot}</Text>
+                <Text style={{backgroundColor:'#00000000', fontSize:12, fontFamily:'Montserrat_600SemiBold'}}>{slot}</Text>
             </LinearGradient>
         </Pressable>
     )
@@ -67,6 +67,8 @@ const styles = StyleSheet.create({
         borderWidth:1, 
         borderColor:'#3599B0',
         backgroundColor:'#00000000',
+        opacity:0.9,
+        borderRadius:5,
     },
     inactiveTimeSlotButtonGradient:{
         width:'100%', 
