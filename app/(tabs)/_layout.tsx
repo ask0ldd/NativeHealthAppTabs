@@ -1,6 +1,6 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import { Image, Pressable, View, useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
 import { useFonts, Montserrat_300Light, Montserrat_400Regular, Montserrat_500Medium, Montserrat_600SemiBold, Montserrat_700Bold, Montserrat_800ExtraBold,} from '@expo-google-fonts/montserrat';
@@ -13,6 +13,22 @@ function TabBarIcon(props: {
   color: string;
 }) {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+}
+
+const tabsLink = {
+  'settings' : require('../../assets/tabicons/settings.png'),
+  'profile' : require('../../assets/tabicons/profile.png'),
+  'search' : require('../../assets/tabicons/search.png'),
+  'emergency' : require('../../assets/tabicons/emergency.png'),
+}
+
+
+function TabBarCustomIcon(props : {name : 'settings' | 'profile' | 'search' | 'emergency' , color : string}){
+  return(
+    <View style={props.name==="emergency" ? {marginTop:-30, width:90, height:90} : {marginTop:3, width:24, height:24, opacity:0.9}}>
+      <Image source={tabsLink[props.name]} />
+    </View>
+  )
 }
 
 export default function TabLayout() {
@@ -40,8 +56,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Search',
+          tabBarIcon: ({ color }) => <TabBarCustomIcon name="search" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -58,10 +74,10 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen name="two" options={{ title: 'Tab Two', tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />, }} />
-      <Tabs.Screen name="three" options={{ title: 'Tab Three', tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />, }} />
-      <Tabs.Screen name="four" options={{ title: 'Tab Four', tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />, }} />
-      <Tabs.Screen name="five" options={{ title: 'Tab Five', tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />, }} />
+      <Tabs.Screen name="two" options={{ title: 'Tab Two', tabBarIcon: ({ color }) => <TabBarCustomIcon name="settings" color={color} />, }} />
+      <Tabs.Screen name="three" options={{ title: 'Emergency', tabBarIcon: ({ color }) => <TabBarCustomIcon name="emergency" color={color} />, }} />
+      <Tabs.Screen name="four" options={{ title: 'Settings', tabBarIcon: ({ color }) => <TabBarCustomIcon name="settings" color={color} />, }} />
+      <Tabs.Screen name="five" options={{ title: 'Profile', tabBarIcon: ({ color }) => <TabBarCustomIcon name="profile" color={color} />, }} />
     </Tabs>
   );
 }
