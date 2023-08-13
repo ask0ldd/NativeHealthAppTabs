@@ -7,6 +7,7 @@ import { useMemo, useRef, useState } from 'react';
 import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
 import TimeSlotButton from '../../components/TimeSlotButton';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 const Timeslots : Array<string> = ["09h00 AM", "10h00 AM", "11h00 AM", "13h00 PM", "14h00 PM", "15h00 PM", "16h00 PM", "17h00 PM", "18h00 PM"]
 
@@ -24,7 +25,7 @@ export default function AppointmentScreen() {
   const [ bookingMessage, setBookingMessage ] = useState<string>()
 
   return (
-    <KeyboardAvoidingView>
+    <ScrollView>
     <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
       <Image style={{position:'absolute', top:110, left:-120,}} source={require('../../assets/bgpattern.png')}/>
       <View style={styles.buttonsnCardContainer}>
@@ -74,9 +75,31 @@ export default function AppointmentScreen() {
             {Timeslots.map((slot, index) => (<TimeSlotButton activeTimeSlot={activeTimeSlot} timeSlotsList={Timeslots} scrollView={scrollViewTimeSlot} setActiveTimeSlot={setActiveTimeSlot} key={'tskey'+index} slot={slot}/>))}
         </ScrollView>
       </View>
-      <TextInput style={styles.bookingMessageInput} multiline={true} numberOfLines={8} onChangeText={(text) => setBookingMessage(text)} value={bookingMessage}/>
+      <TextInput style={styles.bookingMessageInput} multiline={true} numberOfLines={8} onChangeText={(text) => setBookingMessage(text)} value={bookingMessage} maxLength={600}/>
+      <Pressable style={styles.bookingButton}>
+            <LinearGradient style={styles.bookingButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
+              <Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Book this Appointment</Text>
+            </LinearGradient>
+      </Pressable>
+      <View style={{flexDirection:'row', marginTop:35, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
+          <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Your Documents</Text>
+          <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline', fontFamily:'Montserrat_600SemiBold'}}>See More</Text>
+      </View>
+
+      <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
+            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
+        </View>
+        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
+            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
+        </View>
+        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
+            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
+        </View>
+        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
+            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
+        </View>
     </LinearGradient>
-    </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
 
@@ -145,8 +168,28 @@ const styles = StyleSheet.create({
     borderColor:'#A5E3ECFF',
     backgroundColor:'#FAFDFEFF',
     borderRadius:10,
+    marginTop:10,
+    paddingHorizontal:12,
+    paddingVertical:8,
+    textAlignVertical: 'top',
+  },
+  bookingButton : {
+    borderRadius: 6,
+    justifyContent:'center',
+    alignItems:'center',
     marginTop:25,
-    paddingLeft:12,
+    shadowColor:'#23BEE3',
+    elevation:10,
+    width:200,
+    alignSelf:'center',
+    backgroundColor:'#00000000'
+  },
+  bookingButtonGradient : {
+    height:36, 
+    paddingHorizontal:16,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:6,
   },
 })
 
