@@ -28,8 +28,16 @@ export default function AppointmentScreen() {
       <View style={styles.buttonsnCardContainer}>
         <View style={styles.buttonsContainer}>
             <Pressable style={styles.buttons}></Pressable>
-            <Pressable style={[styles.blueButtons, {marginTop:'auto'}]}></Pressable>
-            <Pressable style={styles.blueButtons}></Pressable>
+            <View style={[styles.blueButtons, {marginTop:'auto'}]}>
+              <LinearGradient style={{width:42, height:42, justifyContent:'center', alignItems:'center'}} colors={['#ffffff44', 'transparent']} start={{x:1, y:0}} end={{x:0.2, y:0.8}}>
+                <Image source={require('../../assets/icons/phone.png')}/>
+              </LinearGradient>
+            </View>
+            <Pressable style={styles.blueButtons}>
+              <LinearGradient style={{width:42, height:42, justifyContent:'center', alignItems:'center'}} colors={['#ffffff44', 'transparent']} start={{x:1, y:0}} end={{x:0.2, y:0.8}}>
+                <Image style={{marginTop:1}} source={require('../../assets/icons/chat.png')}/>
+              </LinearGradient>
+            </Pressable>
         </View>
         <LinearGradient colors={['#FCFEFE', '#E2F5F9']} style={styles.card}>
             <Image style={{position: 'absolute', left: '35%', top:0 }} source={require('../../assets/heartbgpattern.png')} />
@@ -115,6 +123,7 @@ const styles = StyleSheet.create({
   blueButtons:{
     height:42,
     width:42,
+    flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
     borderRadius:10,
