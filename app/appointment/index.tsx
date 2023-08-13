@@ -88,35 +88,35 @@ export default function AppointmentScreen() {
               </LinearGradient>
         </Pressable>
 
-        <View style={{flexDirection:'row', marginTop:35, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
+        <View style={{flexDirection:'row', marginTop:35, marginBottom:10, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
             <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Your Documents</Text>
             <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline', fontFamily:'Montserrat_600SemiBold'}}>See More</Text>
         </View>
 
         <View style={styles.docRow}>
-          <Image style={styles.docRowIcon} source={require('../../assets/icons/phone.png')}/>
+          <View style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></View>
           <View style={styles.docRowDatasContainer}>
             <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>12-07-2020</Text>
             <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>--</Text>
+            <Image source={require('../../assets/icons/arrow.png')}/>
           </View>
         </View>
 
         <View style={styles.docRow}>
-          <Image style={styles.docRowIcon} source={require('../../assets/icons/phone.png')}/>
+          <View style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></View>
           <View style={styles.docRowDatasContainer}>
             <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>12-07-2020</Text>
             <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>--</Text>
+            <Image source={require('../../assets/icons/arrow.png')}/>
           </View>
         </View>
 
         <View style={styles.docRow}>
-          <Image style={styles.docRowIcon} source={require('../../assets/icons/phone.png')}/>
+          <View style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></View>
           <View style={styles.docRowDatasContainer}>
             <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>12-07-2020</Text>
             <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>--</Text>
+            <Image source={require('../../assets/icons/arrow.png')}/>
           </View>
         </View>
 
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection:'column',
-    paddingBottom:20
+    paddingBottom:40
   },
   buttonsnCardContainer: {
     flexDirection:'row',
@@ -223,13 +223,20 @@ const styles = StyleSheet.create({
     backgroundColor:'#00000000',
     marginTop:15,
   },
-  docRowIcon:{
+  docRowIconContainer:{
     height:36,
     width:36,
     justifyContent:'center',
     alignItems:'center',
     borderRadius:6,
-    backgroundColor:'#ffffffcc',
+    shadowColor:'#23BEE3',
+    elevation:4,
+  },
+  docRowIcon:{
+    height:36,
+    width:36,
+    justifyContent:'center',
+    alignItems:'center',
   },
   docRowDatasContainer:{
     height:36,

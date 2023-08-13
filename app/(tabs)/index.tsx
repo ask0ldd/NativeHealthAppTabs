@@ -63,18 +63,6 @@ export default function TabOneScreen() {
                   <SpecialistCard/>
                 </ScrollView>
         </View>
-        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
-        </View>
-        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
-        </View>
-        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
-        </View>
-        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
-        </View>
 
       </LinearGradient>
     </ScrollView>
