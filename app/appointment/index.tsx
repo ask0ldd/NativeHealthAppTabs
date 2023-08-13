@@ -65,39 +65,59 @@ export default function AppointmentScreen() {
       <View style={{flexDirection:'row', marginTop:10, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
           <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Make an Appointment</Text>
       </View>
+
       <View style={{height:92, marginTop:20, overflow:'visible', backgroundColor:'#00000000'}}>
         <ScrollView ref={scrollViewDate} horizontal={true} contentContainerStyle={{height:92, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
             {Array.from({ length: 31 }, (_, index) => (<DateButton key={'dbkey'+index} screenWidth={screenWidth} scrollView={scrollViewDate} activeDate={activeDate} setActiveDate={setActiveDate} month={currentMonth} day={index+1} /*active={index+1 === activeDate.day && currentMonth === activeDate.month ? true : false}*//>))}
         </ScrollView>
       </View>
+
       <View style={{height:56, marginTop:5, overflow:'visible', backgroundColor:'#00000000'}}>
         <ScrollView ref={scrollViewTimeSlot} horizontal={true} contentContainerStyle={{height:56, overflow:'visible', columnGap:16, paddingHorizontal:16, }}>
             {Timeslots.map((slot, index) => (<TimeSlotButton activeTimeSlot={activeTimeSlot} timeSlotsList={Timeslots} scrollView={scrollViewTimeSlot} setActiveTimeSlot={setActiveTimeSlot} key={'tskey'+index} slot={slot}/>))}
         </ScrollView>
       </View>
+
       <TextInput style={styles.bookingMessageInput} multiline={true} numberOfLines={8} onChangeText={(text) => setBookingMessage(text)} value={bookingMessage} maxLength={600}/>
+
       <Pressable style={styles.bookingButton}>
             <LinearGradient style={styles.bookingButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
               <Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Book this Appointment</Text>
             </LinearGradient>
       </Pressable>
+
       <View style={{flexDirection:'row', marginTop:35, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
           <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Your Documents</Text>
           <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline', fontFamily:'Montserrat_600SemiBold'}}>See More</Text>
       </View>
 
-      <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
+      <View style={styles.docRow}>
+        <Image style={styles.docRowIcon} source={require('../../assets/icons/phone.png')}/>
+        <View style={styles.docRowDatasContainer}>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>12-07-2020</Text>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>--</Text>
         </View>
-        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
+      </View>
+
+      <View style={styles.docRow}>
+        <Image style={styles.docRowIcon} source={require('../../assets/icons/phone.png')}/>
+        <View style={styles.docRowDatasContainer}>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>12-07-2020</Text>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>--</Text>
         </View>
-        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
+      </View>
+
+      <View style={styles.docRow}>
+        <Image style={styles.docRowIcon} source={require('../../assets/icons/phone.png')}/>
+        <View style={styles.docRowDatasContainer}>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>12-07-2020</Text>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>--</Text>
         </View>
-        <View style={{flexDirection:'row', marginTop:20, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Specialists around You</Text>
-        </View>
+      </View>
+
     </LinearGradient>
     </ScrollView>
   );
@@ -107,6 +127,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection:'column',
+    paddingBottom:20
   },
   buttonsnCardContainer: {
     flexDirection:'row',
@@ -191,6 +212,36 @@ const styles = StyleSheet.create({
     alignItems:'center',
     borderRadius:6,
   },
+  docRow:{
+    height:36,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    columnGap:12,
+    paddingHorizontal:18,
+    backgroundColor:'#00000000',
+    marginTop:15,
+  },
+  docRowIcon:{
+    height:36,
+    width:36,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:6,
+    backgroundColor:'#ffffffcc',
+    shadowColor:'#23BEE3',
+    elevation:4,
+  },
+  docRowDatasContainer:{
+    height:36,
+    flex:1,
+    justifyContent:'space-between',
+    paddingHorizontal:10,
+    flexDirection:'row',
+    alignItems:'center',
+    borderRadius:6,
+    shadowColor:'#23BEE3',
+    elevation:4,
+  }
 })
 
 export interface IActiveDate{
