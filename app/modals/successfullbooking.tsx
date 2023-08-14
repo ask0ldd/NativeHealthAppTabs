@@ -40,15 +40,15 @@ const SuccessfullBooking = (props: Props) => {
                 </View>
 
                 <View style={{flexDirection:'column', rowGap:10, flex:1}}>
-                    <Text style={{color:'#374B4C',  fontSize:14, fontFamily:'Montserrat_600SemiBold', opacity:0.9}}>Time :</Text>
+                    <Text style={{color:'#374B4C',  fontSize:14, fontFamily:'Montserrat_600SemiBold', opacity:0.9}}>Message :</Text>
                     <View style={{width:'100%', flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
-                        <Text style={{fontSize:12, paddingHorizontal:12, paddingVertical:18, lineHeight:18, fontFamily:'Montserrat_400Regular', color:'#374B4C'}}>For the past two weeks, I have been experiencing persistent headaches, primarily located in the frontal region of my head. The intensity of the headaches varies throughout the day, but they have been interfering with my daily activities and causing discomfort.</Text>
+                        <Text style={{fontSize:12, paddingHorizontal:12, paddingVertical:16, lineHeight:18, fontFamily:'Montserrat_400Regular', color:'#374B4C'}}>For the past two weeks, I have been experiencing persistent headaches, primarily located in the frontal region of my head. The intensity of the headaches varies throughout the day, but they have been interfering with my daily activities and causing discomfort.</Text>
                     </View>
                 </View>
 
-                <Pressable>
-                    <LinearGradient>
-                        
+                <Pressable style={{overflow:'visible'}}>
+                    <LinearGradient style={{ alignSelf:'center', width:'65%', borderRadius:6, height:40, justifyContent:'center', alignItems:'center', shadowColor:'#000000FF', elevation:8}} colors={['#D88499','#D8394D']}>
+                        <Text style={{color:'#FFFFFFFF', fontSize:14, fontFamily:'Montserrat_700Bold',}}>Cancel this Appointment</Text>
                     </LinearGradient>
                 </Pressable>
             </View>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         flexDirection:'column',
-        paddingBottom:40  
+        paddingBottom:40
     },
     header:{
         height:162, 
@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
         paddingTop:12,
         borderTopWidth:1,
         borderBottomWidth:1,
-        borderBlockColor:'#fff',
+        borderColor:'#fff',
     }
 })
