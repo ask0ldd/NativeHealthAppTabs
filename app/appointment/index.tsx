@@ -32,10 +32,12 @@ export default function AppointmentScreen() {
         <Image style={{position:'absolute', top:110, left:-120,}} source={require('../../assets/bgpattern.png')}/>
         <View style={styles.buttonsnCardContainer}>
           <View style={styles.buttonsContainer}>
-              <Pressable style={styles.buttons}></Pressable>
+              <Pressable style={styles.buttons}>
+                <Image style={{width:42, height:42}} source={require('../../assets/buttons/back.png')}/>
+              </Pressable>
               <View style={[styles.blueButtons, {marginTop:'auto'}]}>
                 <LinearGradient style={{width:42, height:42, justifyContent:'center', alignItems:'center'}} colors={['#ffffff44', 'transparent']} start={{x:1, y:0}} end={{x:0.2, y:0.8}}>
-                  <Image source={require('../../assets/icons/phone.png')}/>
+                  <Image style={{marginLeft:-1,}} source={require('../../assets/icons/phone.png')}/>
                 </LinearGradient>
               </View>
               <Pressable style={styles.blueButtons}>
@@ -84,7 +86,7 @@ export default function AppointmentScreen() {
 
         <Pressable style={styles.bookingButton}>
               <LinearGradient style={styles.bookingButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
-                <Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Book this Appointment</Text>
+                <Link href="/modals/successfullbooking" asChild><Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Book this Appointment</Text></Link>
               </LinearGradient>
         </Pressable>
 
@@ -165,10 +167,11 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor:'#FFFFFFFF',
-    borderRadius:10,
+    borderRadius:8,
     shadowColor:'#23BEE3',
     elevation:4,
     shadowOpacity:1,
+    overflow:'hidden',
   },
   blueButtons:{
     height:42,
@@ -176,13 +179,14 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
-    borderRadius:10,
+    borderRadius:8,
     elevation:10,
     shadowOpacity:1,
     backgroundColor:'rgba(35, 190, 227, 0.6)',
     borderWidth:1,
     borderColor:'#fff',
     shadowColor:'#39C5E6ff',
+    overflow:'hidden',
   },
   bookingMessageInput:{
     width:'80%', 
@@ -221,7 +225,7 @@ const styles = StyleSheet.create({
     columnGap:12,
     paddingHorizontal:18,
     backgroundColor:'#00000000',
-    marginTop:15,
+    marginTop:18,
   },
   docRowIconContainer:{
     height:36,

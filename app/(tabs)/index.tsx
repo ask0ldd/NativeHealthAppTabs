@@ -59,7 +59,7 @@ export default function TabOneScreen() {
         </View>
         <View style={styles.visitCardContainer}>
                 <ScrollView horizontal={true} contentContainerStyle={{columnGap: 24, paddingLeft:16, paddingRight:16, paddingBottom:20}}>
-                  <Link href="/appointment"><SpecialistCard/></Link>
+                  <SpecialistCard/>
                   <SpecialistCard/>
                 </ScrollView>
         </View>

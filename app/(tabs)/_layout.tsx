@@ -8,14 +8,15 @@ import { useFonts, Montserrat_300Light, Montserrat_400Regular, Montserrat_500Med
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
+/*function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+}*/
 
 const tabsLink = {
+  'calendar' : require('../../assets/tabicons/calendar.png'),
   'settings' : require('../../assets/tabicons/settings.png'),
   'profile' : require('../../assets/tabicons/profile.png'),
   'search' : require('../../assets/tabicons/search.png'),
@@ -23,7 +24,7 @@ const tabsLink = {
 }
 
 
-function TabBarCustomIcon(props : {name : 'settings' | 'profile' | 'search' | 'emergency' , color : string}){
+function TabBarCustomIcon(props : {name : 'settings' | 'profile' | 'search' | 'emergency' | 'calendar' , color : string}){
   return(
     <View style={props.name==="emergency" ? {marginTop:-30, width:90, height:90} : {marginTop:3, width:24, height:24, opacity:0.9}}>
       <Image source={tabsLink[props.name]} />
@@ -74,7 +75,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen name="two" options={{ title: 'Tab Two', tabBarIcon: ({ color }) => <TabBarCustomIcon name="settings" color={color} />, }} />
+      <Tabs.Screen name="two" options={{ title: 'Appointments', tabBarIcon: ({ color }) => <TabBarCustomIcon name="calendar" color={color} />, }} />
       <Tabs.Screen name="three" options={{ title: 'Emergency', tabBarIcon: ({ color }) => <TabBarCustomIcon name="emergency" color={color} />, }} />
       <Tabs.Screen name="four" options={{ title: 'Settings', tabBarIcon: ({ color }) => <TabBarCustomIcon name="settings" color={color} />, }} />
       <Tabs.Screen name="five" options={{ title: 'Profile', tabBarIcon: ({ color }) => <TabBarCustomIcon name="profile" color={color} />, }} />

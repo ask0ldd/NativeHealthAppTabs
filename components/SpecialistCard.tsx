@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import Ratings from './Ratings'
 import { LinearGradient } from 'expo-linear-gradient'
+import { Link } from 'expo-router'
 
 type Props = {}
 
@@ -29,11 +30,11 @@ const SpecialistCard = (props: Props) => {
               <Text style={{fontSize: 12, color: '#374B4C', marginTop: 4, fontFamily:'Montserrat_700Bold'}}>2 Miles</Text>
             </View>
           </View>
-          <Pressable style={styles.appointmentButton}>
-            <LinearGradient style={styles.appointmentButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
-              <Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Appointment</Text>
-            </LinearGradient>
-          </Pressable>
+          <Link href="/appointment" style={styles.appointmentButton}>
+              <LinearGradient style={styles.appointmentButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
+                <Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Appointment</Text>
+              </LinearGradient>
+          </Link>
         </View>
     </LinearGradient>
   )
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     infosContainer : {
       height:'100%',
       flexDirection : 'column',
-      marginLeft : 8,
+      marginLeft : 16,
     },
     colSlot:{
       flexDirection : 'column',
