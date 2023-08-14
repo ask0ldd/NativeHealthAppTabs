@@ -15,11 +15,11 @@ const SuccessfullBooking = (props: Props) => {
 
             <View style={{flexDirection:'column', paddingHorizontal:16, rowGap:20, marginTop:30}}>
                 <View style={{flexDirection:'column', rowGap:10}}>
-                    <Text style={{ fontSize:12, fontFamily:'Montserrat_700Bold', opacity:0.9}}>Practitioner :</Text>
+                    <Text style={{color:'#374B4C',  fontSize:14, fontFamily:'Montserrat_600SemiBold', opacity:0.9}}>Practitioner :</Text>
                     <View style={{flexDirection:'row', columnGap:20}}>
-                        <View style={{flexDirection:'column', width:'100%', flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:4, backgroundColor:'#FFFFFFCC'}}>
-                            <Text>Dr Oliver Sykes</Text>
-                            <Text>HEART SURGEON</Text>
+                        <View style={{flexDirection:'column', rowGap:6, width:'100%', flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
+                            <Text style={{color:'#374B4C', fontSize:16, fontFamily:'Montserrat_700Bold',}}>Dr Oliver Sykes</Text>
+                            <Text style={{color:'#89A4AB', opacity:0.9,  fontSize:12, fontFamily:'Montserrat_600SemiBold',}}>HEART SURGEON</Text>
                         </View>
                         <Image style={{borderRadius:6, shadowColor:'#23BEE3', borderWidth:2, borderColor:'#FFFFFFFF'}} source={require('../../assets/avatars/oliver72_avatar.png')}/>
                     </View>
