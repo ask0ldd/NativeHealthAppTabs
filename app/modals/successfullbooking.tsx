@@ -8,6 +8,8 @@ const SuccessfullBooking = (props: Props) => {
   return (
     <ScrollView>
         <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
+            <Image style={{position:'absolute', top:110, left:-120,}} source={require('../../assets/bgpattern.png')}/>
+            <Image style={{position:'absolute', top:600, left:-600,}} source={require('../../assets/bgpattern.png')}/>
             <LinearGradient style={styles.header} colors={['#FFFFFF00','#FFFFFF85','#FFFFFF85','#FFFFFF00']} start={{x:0, y:0}} end={{x:1, y:0}} locations={[0,0.25,0.75,1]}>
                 <Image source={require('../../assets/success.png')}/>
                 <Text style={{ fontSize:16, fontFamily:'Montserrat_700Bold', color:'#415556', opacity:0.9}}>Your Appointment is Booked !</Text>
@@ -46,8 +48,8 @@ const SuccessfullBooking = (props: Props) => {
                     </View>
                 </View>
 
-                <Pressable style={{overflow:'visible'}}>
-                    <LinearGradient style={{ alignSelf:'center', width:'65%', borderRadius:6, height:40, justifyContent:'center', alignItems:'center', shadowColor:'#000000FF', elevation:8}} colors={['#D88499','#D8394D']}>
+                <Pressable style={{overflow:'visible', marginTop:10, }}>
+                    <LinearGradient style={{ alignSelf:'center', width:'60%', borderRadius:6, height:40, justifyContent:'center', alignItems:'center', shadowColor:'#FF0000FF', elevation:8}} colors={['#D88499','#D8394D']}>
                         <Text style={{color:'#FFFFFFFF', fontSize:14, fontFamily:'Montserrat_700Bold',}}>Cancel this Appointment</Text>
                     </LinearGradient>
                 </Pressable>
