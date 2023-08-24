@@ -18,17 +18,17 @@ export default function TabTwoScreen() {
                   <View style={{borderRadius:6, shadowColor:'#23BEE3', borderWidth:3, borderColor:'#FFFFFFFF', elevation:6, overflow:'hidden'}}><Image source={require('../../assets/avatars/oliver72_avatar.png')}/></View>
               </View>
           </View>
-          <View style={{flexDirection:'column', height:50, rowGap:6, width:'100%', flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
-            <Text>AAA</Text>
+          <View style={styles.smallAppointmentContainer}>
+            <Text style={styles.smallAppointmentName}>Connie Walter</Text>
           </View>
-          <View style={{flexDirection:'column', height:50, rowGap:6, width:'100%', flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
-            <Text>AAA</Text>
+          <View style={styles.smallAppointmentContainer}>
+            <Text style={styles.smallAppointmentName}>Olga Abramovic</Text>
           </View>
-          <View style={{flexDirection:'column', height:50, rowGap:6, width:'100%', flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
-            <Text>AAA</Text>
+          <View style={styles.smallAppointmentContainer}>
+            <Text style={styles.smallAppointmentName}>Connie Walter</Text>
           </View>
-          <View style={{flexDirection:'column', height:50, rowGap:6, width:'100%', flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
-            <Text>AAA</Text>
+          <View style={styles.smallAppointmentContainer}>
+            <Text style={styles.smallAppointmentName}>Andy Gaynes</Text>
           </View>
         </View>        
       </LinearGradient>
@@ -42,4 +42,24 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection:'column',
   },
+  smallAppointmentContainer : {
+    flexDirection:'column', 
+    paddingHorizontal:20, 
+    height:50, 
+    rowGap:6, 
+    width:'100%', 
+    flex:1, 
+    justifyContent:'center', 
+    alignItems:'flex-start', 
+    borderRadius:6, 
+    shadowColor:'#23BEE3', 
+    elevation:6, 
+    backgroundColor:'#FFFFFFCC',
+  },
+  smallAppointmentName : {
+    color:'#374B4C',  
+    fontSize:14, 
+    fontFamily:'Montserrat_600SemiBold', 
+    opacity:0.9
+  }
 });
