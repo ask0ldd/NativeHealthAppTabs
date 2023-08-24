@@ -36,12 +36,12 @@ export default function TabOneScreen() {
         </View>
         <View style={styles.specialistsContainer}>
             <ScrollView horizontal={true} contentContainerStyle={{columnGap: 16, paddingHorizontal:16, paddingBottom:20}}>
-              <Speciality speciality="General" specialityIconUri={require('../../assets/icons/general.png')} setSpeciality={() => setActiveSpeciality("General")}/>
-              <Speciality speciality="Dental" specialityIconUri={require('../../assets/icons/tooth.png')} setSpeciality={() => setActiveSpeciality("Dental")}/>
-              <Speciality speciality="Cardio" specialityIconUri={require('../../assets/icons/cardiac.png')} setSpeciality={() => setActiveSpeciality("Cardio")}/>
-              <Speciality speciality="Vaccine" specialityIconUri={require('../../assets/icons/seringe.png')} setSpeciality={() => setActiveSpeciality("Vaccine")}/>
-              <Speciality speciality="Eyes" specialityIconUri={require('../../assets/icons/glasses.png')} setSpeciality={() => setActiveSpeciality("Eyes")}/>
-              <Speciality speciality="Dermato" specialityIconUri={require('../../assets/icons/tooth.png')} setSpeciality={() => setActiveSpeciality("Dermato")}/>
+              <Speciality active={activeSpeciality == "General"} speciality="General" specialityIconUri={require('../../assets/icons/general.png')} setSpeciality={() => setActiveSpeciality("General")}/>
+              <Speciality active={activeSpeciality == "Dental"} speciality="Dental" specialityIconUri={require('../../assets/icons/tooth.png')} setSpeciality={() => setActiveSpeciality("Dental")}/>
+              <Speciality active={activeSpeciality == "Cardio"} speciality="Cardio" specialityIconUri={require('../../assets/icons/cardiac.png')} setSpeciality={() => setActiveSpeciality("Cardio")}/>
+              <Speciality active={activeSpeciality == "Vaccine"} speciality="Vaccine" specialityIconUri={require('../../assets/icons/seringe.png')} setSpeciality={() => setActiveSpeciality("Vaccine")}/>
+              <Speciality active={activeSpeciality == "Eyes"} speciality="Eyes" specialityIconUri={require('../../assets/icons/glasses.png')} setSpeciality={() => setActiveSpeciality("Eyes")}/>
+              <Speciality active={activeSpeciality == "Dermato"} speciality="Dermato" specialityIconUri={require('../../assets/icons/tooth.png')} setSpeciality={() => setActiveSpeciality("Dermato")}/>
             </ScrollView>
         </View>
         <View style={styles.searchbarContainer}>
@@ -64,7 +64,6 @@ export default function TabOneScreen() {
                   <SpecialistCard/>
                 </ScrollView>
         </View>
-        <Text>{activeSpeciality}</Text>
 
       </LinearGradient>
     </ScrollView>

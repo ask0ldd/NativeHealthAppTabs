@@ -98,7 +98,7 @@ export default function AppointmentScreen() {
         <View style={styles.docRow}>
           <View style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></View>
           <View style={styles.docRowDatasContainer}>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>12-07-2020</Text>
+            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>15-08-2023</Text>
             <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
             <Image source={require('../../assets/icons/arrow.png')}/>
           </View>
