@@ -11,6 +11,7 @@ import { useState } from 'react';
 export default function TabOneScreen() {
 
   const [searchInputValue, setSearchInputValue]= useState<string>("Search for a Professional")
+  const [activeSpeciality, setActiveSpeciality] = useState<"General" | "Dental" | "Cardio" | "Vaccine" | "Eyes" | "Dermato">("General")
 
   return (
     <ScrollView>
@@ -35,17 +36,17 @@ export default function TabOneScreen() {
         </View>
         <View style={styles.specialistsContainer}>
             <ScrollView horizontal={true} contentContainerStyle={{columnGap: 16, paddingHorizontal:16, paddingBottom:20}}>
-              <Speciality speciality="General" specialityIconUri={require('../../assets/icons/general.png')}/>
-              <Speciality speciality="Dental" specialityIconUri={require('../../assets/icons/tooth.png')}/>
-              <Speciality speciality="Cardio" specialityIconUri={require('../../assets/icons/cardiac.png')}/>
-              <Speciality speciality="Vaccine" specialityIconUri={require('../../assets/icons/seringe.png')}/>
-              <Speciality speciality="Eyes" specialityIconUri={require('../../assets/icons/glasses.png')}/>
-              <Speciality speciality="Dermato" specialityIconUri={require('../../assets/icons/tooth.png')}/>
+              <Speciality speciality="General" specialityIconUri={require('../../assets/icons/general.png')} setSpeciality={() => setActiveSpeciality("General")}/>
+              <Speciality speciality="Dental" specialityIconUri={require('../../assets/icons/tooth.png')} setSpeciality={() => setActiveSpeciality("Dental")}/>
+              <Speciality speciality="Cardio" specialityIconUri={require('../../assets/icons/cardiac.png')} setSpeciality={() => setActiveSpeciality("Cardio")}/>
+              <Speciality speciality="Vaccine" specialityIconUri={require('../../assets/icons/seringe.png')} setSpeciality={() => setActiveSpeciality("Vaccine")}/>
+              <Speciality speciality="Eyes" specialityIconUri={require('../../assets/icons/glasses.png')} setSpeciality={() => setActiveSpeciality("Eyes")}/>
+              <Speciality speciality="Dermato" specialityIconUri={require('../../assets/icons/tooth.png')} setSpeciality={() => setActiveSpeciality("Dermato")}/>
             </ScrollView>
         </View>
         <View style={styles.searchbarContainer}>
           <View style={styles.searchBar}>
-            <TextInput style={{fontSize:14, color:'#93AEB5', fontFamily:'Montserrat_500Medium'}} value={searchInputValue} onChangeText={text => setSearchInputValue(text)} onFocus={() => {if(searchInputValue == "Search for a Professional") setSearchInputValue("")}} onBlur={() => {if(searchInputValue == "") setSearchInputValue("Search for a Professional")}}/>
+            <TextInput style={{width:'100%', fontSize:14, color:'#93AEB5', fontFamily:'Montserrat_500Medium'}} value={searchInputValue} onChangeText={text => setSearchInputValue(text)} onFocus={() => {if(searchInputValue == "Search for a Professional") setSearchInputValue("")}} onBlur={() => {if(searchInputValue == "") setSearchInputValue("Search for a Professional")}}/>
           </View>
           <Link href="/modal" asChild>
             <Pressable style={styles.searchOptions}>
@@ -63,6 +64,7 @@ export default function TabOneScreen() {
                   <SpecialistCard/>
                 </ScrollView>
         </View>
+        <Text>{activeSpeciality}</Text>
 
       </LinearGradient>
     </ScrollView>

@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View, Image, ImageSourcePropType } from 'react-native'
+import { StyleSheet, Text, View, Image, ImageSourcePropType, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
 type Props = {
     speciality : string
     specialityIconUri : ImageSourcePropType
+    setSpeciality : () => void
 }
 
 const Speciality = (props: Props) => {
   return (
-    <View style={styles.specialityContainer}>
+    <Pressable style={styles.specialityContainer} onPress={() => props.setSpeciality()}>
         <View style={styles.specialityButton}>
             <LinearGradient style={{width:64, height:64, justifyContent:'center', alignItems:'center'}} colors={['#ffffff44', 'transparent']} start={{x:1, y:0}} end={{x:0.2, y:0.8}}>
                 <Image style={styles.icon} source={props.specialityIconUri}/>
@@ -17,7 +18,7 @@ const Speciality = (props: Props) => {
         <Text style={{textAlign:'center', fontSize:12, color:'#374B4C', fontFamily:'Montserrat_600SemiBold'}}>
             {props.speciality}
         </Text>
-    </View>
+    </Pressable>
   )
 }
 
