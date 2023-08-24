@@ -45,7 +45,7 @@ export default function TabOneScreen() {
         </View>
         <View style={styles.searchbarContainer}>
           <View style={styles.searchBar}>
-            <TextInput style={{fontSize:14, color:'#93AEB5', fontFamily:'Montserrat_500Medium'}} value={searchInputValue} onChangeText={text => setSearchInputValue(text)}/>
+            <TextInput style={{fontSize:14, color:'#93AEB5', fontFamily:'Montserrat_500Medium'}} value={searchInputValue} onChangeText={text => setSearchInputValue(text)} onFocus={() => {if(searchInputValue == "Search for a Professional") setSearchInputValue("")}} onBlur={() => {if(searchInputValue == "") setSearchInputValue("Search for a Professional")}}/>
           </View>
           <Link href="/modal" asChild>
             <Pressable style={styles.searchOptions}>

@@ -20,13 +20,13 @@ const tabsLink = {
   'settings' : require('../../assets/tabicons/settings.png'),
   'profile' : require('../../assets/tabicons/profile.png'),
   'search' : require('../../assets/tabicons/search.png'),
-  'emergency' : require('../../assets/tabicons/emergency.png'),
+  'emergency' : require('../../assets/tabicons/emergencybase.png'),
 }
 
 
 function TabBarCustomIcon(props : {name : 'settings' | 'profile' | 'search' | 'emergency' | 'calendar' , color : string}){
   return(
-    <View style={props.name==="emergency" ? {marginTop:-30, width:90, height:90} : {marginTop:3, width:24, height:24, opacity:0.9}}>
+    <View style={/*props.name==="emergency" ? {marginTop:-30, width:90, height:90} : */{marginTop:3, width:24, height:24, opacity:0.9}}>
       <Image source={tabsLink[props.name]} />
     </View>
   )
