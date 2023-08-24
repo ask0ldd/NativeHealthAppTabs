@@ -36,12 +36,12 @@ export default function TabOneScreen() {
         </View>
         <View style={styles.specialistsContainer}>
             <ScrollView horizontal={true} contentContainerStyle={{columnGap: 16, paddingHorizontal:16, paddingBottom:20}}>
-              <Speciality active={activeSpeciality == "General"} speciality="General" specialityIconUri={require('../../assets/icons/general.png')} setSpeciality={() => setActiveSpeciality("General")}/>
-              <Speciality active={activeSpeciality == "Dental"} speciality="Dental" specialityIconUri={require('../../assets/icons/tooth.png')} setSpeciality={() => setActiveSpeciality("Dental")}/>
-              <Speciality active={activeSpeciality == "Cardio"} speciality="Cardio" specialityIconUri={require('../../assets/icons/cardiac.png')} setSpeciality={() => setActiveSpeciality("Cardio")}/>
-              <Speciality active={activeSpeciality == "Vaccine"} speciality="Vaccine" specialityIconUri={require('../../assets/icons/seringe.png')} setSpeciality={() => setActiveSpeciality("Vaccine")}/>
-              <Speciality active={activeSpeciality == "Eyes"} speciality="Eyes" specialityIconUri={require('../../assets/icons/glasses.png')} setSpeciality={() => setActiveSpeciality("Eyes")}/>
-              <Speciality active={activeSpeciality == "Dermato"} speciality="Dermato" specialityIconUri={require('../../assets/icons/tooth.png')} setSpeciality={() => setActiveSpeciality("Dermato")}/>
+              <Speciality active={activeSpeciality == "General"} speciality="General" specialityIconUri={activeSpeciality != "General" ? require('../../assets/icons/general.png') : require('../../assets/icons/generaldk.png')} setSpeciality={() => setActiveSpeciality("General")}/>
+              <Speciality active={activeSpeciality == "Dental"} speciality="Dental" specialityIconUri={activeSpeciality != "Dental" ? require('../../assets/icons/tooth.png') : require('../../assets/icons/toothdk.png')} setSpeciality={() => setActiveSpeciality("Dental")}/>
+              <Speciality active={activeSpeciality == "Cardio"} speciality="Cardio" specialityIconUri={activeSpeciality != "Cardio" ? require('../../assets/icons/cardiac.png') : require('../../assets/icons/cardiacdk.png')} setSpeciality={() => setActiveSpeciality("Cardio")}/>
+              <Speciality active={activeSpeciality == "Vaccine"} speciality="Vaccine" specialityIconUri={activeSpeciality != "Vaccine" ? require('../../assets/icons/seringe.png') : require('../../assets/icons/seringedk.png')} setSpeciality={() => setActiveSpeciality("Vaccine")}/>
+              <Speciality active={activeSpeciality == "Eyes"} speciality="Eyes" specialityIconUri={activeSpeciality != "Eyes" ? require('../../assets/icons/glasses.png') : require('../../assets/icons/glassesdk.png')} setSpeciality={() => setActiveSpeciality("Eyes")}/>
+              <Speciality active={activeSpeciality == "Dermato"} speciality="Dermato" specialityIconUri={activeSpeciality != "Dermato" ? require('../../assets/icons/tooth.png') : require('../../assets/icons/toothdk.png')} setSpeciality={() => setActiveSpeciality("Dermato")}/>
             </ScrollView>
         </View>
         <View style={styles.searchbarContainer}>
