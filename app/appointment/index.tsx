@@ -10,6 +10,7 @@ import TimeSlotButton from '../../components/TimeSlotButton';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Document from '../../components/Document';
 
 const Timeslots : Array<string> = ["09h00 AM", "10h00 AM", "11h00 AM", "13h00 PM", "14h00 PM", "15h00 PM", "16h00 PM", "17h00 PM", "18h00 PM"]
 
@@ -95,32 +96,9 @@ export default function AppointmentScreen() {
             <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline', fontFamily:'Montserrat_600SemiBold'}}>See More</Text>
         </View>
 
-        <View style={styles.docRow}>
-          <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></LinearGradient>
-          <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowDatasContainer}>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>15-08-2023</Text>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
-            <Image source={require('../../assets/icons/arrow.png')}/>
-          </LinearGradient>
-        </View>
-
-        <View style={styles.docRow}>
-          <View style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></View>
-          <View style={styles.docRowDatasContainer}>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>12-07-2020</Text>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
-            <Image source={require('../../assets/icons/arrow.png')}/>
-          </View>
-        </View>
-
-        <View style={styles.docRow}>
-          <View style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></View>
-          <View style={styles.docRowDatasContainer}>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>12-07-2020</Text>
-            <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
-            <Image source={require('../../assets/icons/arrow.png')}/>
-          </View>
-        </View>
+        <Document documentName='COVID-19 Prescription' date='15-08-2023' iconFileName='flask'/>
+        <Document documentName='COVID-19 Prescription' date='15-08-2023' iconFileName='flask'/>
+        <Document documentName='COVID-19 Prescription' date='15-08-2023' iconFileName='flask'/>
 
       </LinearGradient>
     </KeyboardAwareScrollView>

@@ -2,21 +2,27 @@ import { LinearGradient } from "expo-linear-gradient"
 import { Image, ScrollView, StyleSheet, Pressable, TextInput, Dimensions} from 'react-native';
 import { Text, View } from '../components/Themed';
 
-function Document(){
+function Document({iconFileName, documentName, date} : IProps){
 
     return(
         <View style={styles.docRow}>
-        <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></LinearGradient>
+        <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require(`../assets/icons/${iconFileName}.png`)}/></LinearGradient>
         <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowDatasContainer}>
-          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>15-08-2023</Text>
-          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
-          <Image source={require('../../assets/icons/arrow.png')}/>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>{date}</Text>
+          <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>{documentName}</Text>
+          <Image source={require('../assets/icons/arrow.png')}/>
         </LinearGradient>
       </View> 
     )
 }
 
 export default Document
+
+interface IProps{
+    iconFileName : string
+    documentName : string
+    date : string
+}
 
 const styles = StyleSheet.create({
     docRow:{
