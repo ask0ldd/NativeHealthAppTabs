@@ -96,12 +96,12 @@ export default function AppointmentScreen() {
         </View>
 
         <View style={styles.docRow}>
-          <View style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></View>
-          <View style={styles.docRowDatasContainer}>
+          <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require('../../assets/icons/flask.png')}/></LinearGradient>
+          <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowDatasContainer}>
             <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>15-08-2023</Text>
             <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>COVID-19 Prescription</Text>
             <Image source={require('../../assets/icons/arrow.png')}/>
-          </View>
+          </LinearGradient>
         </View>
 
         <View style={styles.docRow}>

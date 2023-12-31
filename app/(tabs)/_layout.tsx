@@ -70,8 +70,15 @@ export default function TabLayout() {
           paddingTop: 4,*/
           borderTopColor: '#60cfe6',
           borderTopWidth: 2,
+          height:54,
         },
         tabBarActiveBackgroundColor : '#7ad2f0aa',
+        tabBarLabelStyle:{
+          marginTop:-4
+        },
+        tabBarItemStyle:{
+          paddingBottom:6,
+        },
       }}>
       <Tabs.Screen
         name="index"
@@ -94,8 +101,8 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen name="two" options={{ title: 'Appointments', tabBarIcon: ({ focused, color }) => <TabBarCustomIcon name="calendar" color={color} focused={focused} />, }} />
-      <Tabs.Screen name="three" options={{ title: 'Emergency', tabBarIcon: ({ focused, color }) => <TabBarCustomIcon name="emergency" color={color} focused={focused} />, }} />
+      <Tabs.Screen name="appointments" options={{ title: 'Appointments', tabBarIcon: ({ focused, color }) => <TabBarCustomIcon name="calendar" color={color} focused={focused} />, }} />
+      <Tabs.Screen name="emergencycall" options={{ title: 'Emergency', tabBarIcon: ({ focused, color }) => <TabBarCustomIcon name="emergency" color={color} focused={focused} />, }} />
       <Tabs.Screen name="four" options={{ title: 'Settings', tabBarIcon: ({ focused, color }) => <TabBarCustomIcon name="settings" color={color} focused={focused} />, }} />
       <Tabs.Screen name="five" options={{ title: 'Profile', tabBarIcon: ({ focused, color }) => <TabBarCustomIcon name="profile" color={color} focused={focused} />, }} />
     </Tabs>
