@@ -1,12 +1,16 @@
 import { LinearGradient } from "expo-linear-gradient"
-import { Image, ScrollView, StyleSheet, Pressable, TextInput, Dimensions} from 'react-native';
+import { Image, StyleSheet, ImageSourcePropType} from 'react-native';
 import { Text, View } from '../components/Themed';
 
 function Document({iconFileName, documentName, date} : IProps){
 
+    const icons : { [key: string]: ImageSourcePropType } = {
+        flask : require(`../assets/icons/flask.png`)
+    }
+
     return(
         <View style={styles.docRow}>
-        <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={require(`../assets/icons/${iconFileName}.png`)}/></LinearGradient>
+        <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowIconContainer}><Image style={styles.docRowIcon} source={icons[iconFileName]}/></LinearGradient>
         <LinearGradient colors={['#FFFFFFFF', '#FFFFFFAA']} style={styles.docRowDatasContainer}>
           <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>{date}</Text>
           <Text style={{fontSize:12, fontFamily:'Montserrat_500Medium',}}>{documentName}</Text>
