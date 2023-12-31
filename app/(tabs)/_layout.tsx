@@ -1,6 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { Image, Pressable, View, useColorScheme } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import Colors from '../../constants/Colors';
 import { useFonts, Montserrat_300Light, Montserrat_400Regular, Montserrat_500Medium, Montserrat_600SemiBold, Montserrat_700Bold, Montserrat_800ExtraBold,} from '@expo-google-fonts/montserrat';
@@ -16,11 +17,11 @@ import { useFonts, Montserrat_300Light, Montserrat_400Regular, Montserrat_500Med
 }*/
 
 const tabsLink = {
-  'calendar' : require('../../assets/tabicons/calendar.png'),
-  'settings' : require('../../assets/tabicons/settings.png'),
-  'profile' : require('../../assets/tabicons/profile.png'),
-  'search' : require('../../assets/tabicons/search.png'),
-  'emergency' : require('../../assets/tabicons/emergencybase.png'),
+  'calendar' : require('../../assets/tabicons/calendarw.png'),
+  'settings' : require('../../assets/tabicons/settingsw.png'),
+  'profile' : require('../../assets/tabicons/profilew.png'),
+  'search' : require('../../assets/tabicons/searchw.png'),
+  'emergency' : require('../../assets/tabicons/emergencybasew.png'),
 }
 
 
@@ -53,6 +54,11 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarStyle: {
+          backgroundColor: '#68D2EAFF',
+          paddingBottom: 5,
+          paddingTop: 3,
+        },
       }}>
       <Tabs.Screen
         name="index"
@@ -82,3 +88,15 @@ export default function TabLayout() {
     </Tabs>
   );
 }
+
+/*
+
+#68D2EA
+*/
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#68D2EAFF',
+  },
+});
+
