@@ -21,13 +21,13 @@ const tabsLink = {
   'settings' : require('../../assets/tabicons/settingsw.png'),
   'profile' : require('../../assets/tabicons/profilew.png'),
   'search' : require('../../assets/tabicons/searchw.png'),
-  'emergency' : require('../../assets/tabicons/emergencybasew.png'),
+  'emergency' : require('../../assets/tabicons/emergency.png'),
 }
 
 
 function TabBarCustomIcon(props : {name : 'settings' | 'profile' | 'search' | 'emergency' | 'calendar' , color : string}){
   return(
-    <View style={/*props.name==="emergency" ? {marginTop:-30, width:90, height:90} : */{marginTop:3, width:24, height:24, opacity:0.9}}>
+    <View style={props.name==="emergency" ? {marginTop:-30, width:90, height:90} : {marginTop:1, width:24, height:24, opacity:0.9}}>
       <Image source={tabsLink[props.name]} />
     </View>
   )
@@ -53,11 +53,15 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        // tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: 'black',
+        tabBarInactiveTintColor: 'white',
         tabBarStyle: {
-          backgroundColor: '#68D2EAFF',
+          backgroundColor: '#48B1D5FF',
           paddingBottom: 5,
-          paddingTop: 3,
+          paddingTop: 4,
+          borderTopColor: '#68D2EA',
+          borderTopWidth: 2,
         },
       }}>
       <Tabs.Screen
