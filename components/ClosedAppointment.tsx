@@ -1,12 +1,12 @@
 import { Image, Pressable, Text, View, StyleSheet } from 'react-native'
 
-function ClosedAppointment({appointmentId, setActiveAppointment} : IProps){
+function ClosedAppointment({appointmentId, practician, date, setActiveAppointment} : IProps){
 
     return(
-        <Pressable onPress={() => { setActiveAppointment(appointmentId) }} style={styles.closedAppointmentContainer}>
-            <Text style={styles.closedAppointmentName}>Dr Connie Walter</Text>
-            <Text style={styles.closedAppointmentName}>02-27-2023</Text>
-            <Image source={require('../../assets/icons/arrow.png')}/>
+        <Pressable onPress={() => { setActiveAppointment(appointmentId) }} style={[styles.closedAppointmentContainer, {height:50}]}>
+            <Text style={styles.closedAppointmentName}>{practician}</Text>
+            <Text style={styles.closedAppointmentName}>{date}</Text>
+            <Image source={require('../assets/icons/arrow.png')}/>
         </Pressable>
     )
 
@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
 
 interface IProps{
     appointmentId: number
+    practician : string
+    date : string
     setActiveAppointment : (activeAppointment : number) => void
 }
 
