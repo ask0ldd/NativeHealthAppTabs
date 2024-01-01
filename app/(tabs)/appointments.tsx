@@ -31,23 +31,23 @@ export default function TabTwoScreen() {
               </Pressable>
           </View>
           <Pressable onPress={() => { setActiveAppointment(1) }} style={[styles.closedAppointmentContainer, {height : activeAppointment === 1 ? 100 : 50}]}>
-            <Text style={styles.smallAppointmentName}>Dr Connie Walter</Text>
-            <Text style={styles.smallAppointmentName}>02-27-2023</Text>
+            <Text style={styles.closedAppointmentName}>Dr Connie Walter</Text>
+            <Text style={styles.closedAppointmentName}>02-27-2023</Text>
             <Image source={require('../../assets/icons/arrow.png')}/>
           </Pressable>
           <Pressable onPress={() => { setActiveAppointment(2) }} style={[styles.closedAppointmentContainer, {height : activeAppointment === 2 ? 100 : 50}]}>
-            <Text style={styles.smallAppointmentName}>Dr Olga Abramovic</Text>
-            <Text style={styles.smallAppointmentName}>02-27-2023</Text>
+            <Text style={styles.closedAppointmentName}>Dr Olga Abramovic</Text>
+            <Text style={styles.closedAppointmentName}>02-27-2023</Text>
             <Image source={require('../../assets/icons/arrow.png')}/>
           </Pressable>
           <Pressable onPress={() => { setActiveAppointment(3) }} style={[styles.closedAppointmentContainer, {height : activeAppointment === 3 ? 100 : 50}]}>
-            <Text style={styles.smallAppointmentName}>Dr Connie Walter</Text>
-            <Text style={styles.smallAppointmentName}>02-27-2023</Text>
+            <Text style={styles.closedAppointmentName}>Dr Connie Walter</Text>
+            <Text style={styles.closedAppointmentName}>02-27-2023</Text>
             <Image source={require('../../assets/icons/arrow.png')}/>
           </Pressable>
           <Pressable onPress={() => { setActiveAppointment(4) }} style={[styles.closedAppointmentContainer, {height : activeAppointment === 4 ? 100 : 50}]}>
-            <Text style={styles.smallAppointmentName}>Dr Andy Gaynes</Text>
-            <Text style={styles.smallAppointmentName}>02-27-2023</Text>
+            <Text style={styles.closedAppointmentName}>Dr Andy Gaynes</Text>
+            <Text style={styles.closedAppointmentName}>02-27-2023</Text>
             <Image source={require('../../assets/icons/arrow.png')}/>
           </Pressable>
         </View>        
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     elevation:6, 
     backgroundColor:'#FFFFFFCC',
   },
-  smallAppointmentName : {
+  closedAppointmentName : {
     color:'#374B4C',  
     fontSize:14, 
     fontFamily:'Montserrat_600SemiBold', 
