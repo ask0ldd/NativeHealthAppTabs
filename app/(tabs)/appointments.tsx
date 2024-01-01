@@ -22,10 +22,10 @@ export default function TabTwoScreen() {
             appointmentsList.map((appointment, index) => 
                 appointment.open 
               ? 
-                <OpenAppointment practician={appointment.practician} timeslot={appointment.timeslot} city={appointment.city}
+                <OpenAppointment key={'app'+index} practician={appointment.practician} timeslot={appointment.timeslot} city={appointment.city}
                 state={appointment.state} date={appointment.date} address={appointment.address}/> 
               :
-                <ClosedAppointment practician={appointment.practician} date={appointment.date} setAppointmentsList={setAppointmentsList}
+                <ClosedAppointment key={'app'+index} practician={appointment.practician} date={appointment.date} setAppointmentsList={setAppointmentsList}
                 appointmentId={index} />)
           }
 
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 const appointmentsListInit : Array<IAppointment> = [
   {
     practician : "Oliver Sykes",
-    date : "Wed, May 22 2023",
+    date : "Thu, May 2 2023",
     timeslot : "15h00 - 16h00",
     address : "9500 Euclid Avenue",
     city : "Cleveland",
@@ -87,7 +87,7 @@ const appointmentsListInit : Array<IAppointment> = [
   },
   {
     practician : "Connie Walter",
-    date : "Thu, May 12 2023",
+    date : "Thu, May 3 2023",
     timeslot : "13h00 - 14h00",
     address : "9500 Euclid Avenue",
     city : "Cleveland",
@@ -105,7 +105,7 @@ const appointmentsListInit : Array<IAppointment> = [
   },
   {
     practician : "Connie Walter",
-    date : "Thu, May 3 2023",
+    date : "Thu, May 12 2023",
     timeslot : "13h00 - 14h00",
     address : "9500 Euclid Avenue",
     city : "Cleveland",
@@ -114,7 +114,7 @@ const appointmentsListInit : Array<IAppointment> = [
   },
   {
     practician : "Andy Gaynes",
-    date : "Thu, May 2 2023",
+    date : "Wed, May 22 2023",
     timeslot : "11h00 - 12h00",
     address : "9500 Euclid Avenue",
     city : "Cleveland",
