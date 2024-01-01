@@ -105,14 +105,32 @@ export default function TabThreeScreen() {
         <Text style={styles.calling}>Calling{nDots}</Text>
       </View>
       <View style={{...styles.iconsRow, marginTop : 64}}>
-          <Image style={{width:64,}} source={require('../../assets/avatars/oliver72_avatar.png')}/>
-          <Image style={{width:64,}} source={require('../../assets/avatars/oliver72_avatar.png')}/>
-          <Image style={{width:64,}} source={require('../../assets/avatars/oliver72_avatar.png')}/>
+          <View style={styles.iconContainer}>
+            <Image source={require('../../assets/icons/record.png')}/>
+            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>RECORD</Text>
+          </View>
+          <View style={styles.iconContainer}>
+            <Image source={require('../../assets/icons/addcall.png')}/>
+            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>ADD CALL</Text>
+          </View>
+          <View style={styles.iconContainer}>
+            <Image source={require('../../assets/icons/mute.png')}/>
+            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>MUTE</Text>
+          </View>
       </View>
       <View style={{...styles.iconsRow, marginTop : 16}}>
-          <Image style={{width:64,}} source={require('../../assets/avatars/oliver72_avatar.png')}/>
-          <Image style={{width:64,}} source={require('../../assets/avatars/oliver72_avatar.png')}/>
-          <Image style={{width:64,}} source={require('../../assets/avatars/oliver72_avatar.png')}/>
+          <View style={styles.iconContainer}>
+            <Image source={require('../../assets/icons/record.png')}/>
+            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>RECORD</Text>
+          </View>
+          <View style={styles.iconContainer}>
+            <Image source={require('../../assets/icons/addcall.png')}/>
+            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>ADD CALL</Text>
+          </View>
+          <View style={styles.iconContainer}>
+            <Image source={require('../../assets/icons/mute.png')}/>
+            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>MUTE</Text>
+          </View>
       </View>
     </LinearGradient>
   );
@@ -167,11 +185,22 @@ const styles = StyleSheet.create({
   },
   iconsRow: {
     flexDirection: 'row',
-    columnGap: 24,
+    columnGap: 16,
     backgroundColor: 'transparent',
   },
   iconContainer:{
-    width: 64,
-    height: 64,
+    width:88, 
+    height:88, 
+    backgroundColor:'#F6FCFD', 
+    borderRadius:6, 
+    shadowColor:'#23BEE3', 
+    elevation:6, 
+    display:'flex', 
+    flexDirection:'column',
+    justifyContent:'center',
+    alignItems:'center',
+    rowGap:8,
+    paddingTop:4,
+    opacity:0.9,
   },
 });
