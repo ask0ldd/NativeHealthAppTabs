@@ -1,5 +1,5 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
+import { Link, Tabs, usePathname, useSegments} from 'expo-router';
 import { Image, Pressable, View, useColorScheme } from 'react-native';
 import { StyleSheet } from 'react-native';
 
@@ -31,6 +31,7 @@ const tabsLink : { [key: string]: any } = {
 
 
 function TabBarCustomIcon(props : {name : 'settings' | 'profile' | 'search' | 'emergency' | 'calendar' , color : string, focused : boolean}){
+
   return(
     <View style={props.name==="emergency" ? {marginTop:-30, width:90, height:90} : 
       { marginTop:1, width:24, height:24, opacity:0.9 }
@@ -52,10 +53,13 @@ export default function TabLayout() {
     Montserrat_800ExtraBold,
   });
 
+  const segments : string[] = useSegments();
+  const hide = segments.includes("emergencycall")
+  // const hide = usePathname() === 'emergencycall' ? 'none' : 'flex'
+
   if (!fontsLoaded && !fontError) {
     return null;
   }
-
 
   return (
     <Tabs
@@ -71,6 +75,7 @@ export default function TabLayout() {
           borderTopColor: '#60cfe6',
           borderTopWidth: 2,
           height:54,
+          display: hide ? 'none' : 'flex',
         },
         tabBarActiveBackgroundColor : '#7ad2f0aa',
         tabBarLabelStyle:{

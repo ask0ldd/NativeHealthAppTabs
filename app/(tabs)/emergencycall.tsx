@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import { Text, View } from '../../components/Themed';
 import React, { useEffect, useState } from 'react';
-import { transform } from '@babel/core';
+import { useNavigation, router, Link } from 'expo-router';
 
 export default function TabThreeScreen() {
 
@@ -96,7 +96,7 @@ export default function TabThreeScreen() {
         backgroundColor:'#8BDCEF60',
       }}/>}
 
-      <View style={styles.avatar}>
+      <View style={{...styles.avatar, marginTop : 4}}>
         <Image source={require('../../assets/avatars/oliver92_avatar.png')}/>
       </View>
       <View style={styles.doctorCallingContainer}>
@@ -104,7 +104,7 @@ export default function TabThreeScreen() {
         <View style={styles.separatorLine}/>
         <Text style={styles.calling}>Calling{nDots}</Text>
       </View>
-      <View style={{...styles.iconsRow, marginTop : 48}}>
+      <View style={{...styles.iconsRow, marginTop : 64}}>
           <Pressable style={styles.iconContainer}>
             <Image style={{width:32, height:32}} source={require('../../assets/icons/record2.png')}/>
             <Text style={{fontSize:12, opacity:0.8, letterSpacing:0.25, color:'#415556',}}>RECORD</Text>
@@ -132,10 +132,16 @@ export default function TabThreeScreen() {
             <Text style={{fontSize:12, opacity:0.8, letterSpacing:0.25, color:'#415556',}}>MUTE</Text>
           </Pressable>
       </View>
-      <View style={{...styles.iconsRow, marginTop : 48, columnGap:24}}>
+      <View style={{...styles.iconsRow, marginTop : 92, columnGap:24}}>
             <Image source={require('../../assets/buttons/speakeron.png')}/>
-            <Image source={require('../../assets/buttons/hangdown.png')}/>
-            <Image source={require('../../assets/buttons/speakeron.png')}/>
+            {/*
+              When asChild is set to true, the Link component will not render a default DOM element, instead cloning the child component 
+              and passing it the props and behavior required to make it functional and accessible
+            */}
+            <Link href="/" asChild>
+              <Pressable><Image source={require('../../assets/buttons/hangdown.png')}/></Pressable>
+            </Link>
+            <Image source={require('../../assets/buttons/keyboard.png')}/>
       </View>
     </LinearGradient>
   );
@@ -192,13 +198,14 @@ const styles = StyleSheet.create({
   },
   iconsRow: {
     flexDirection: 'row',
-    columnGap: 16,
+    columnGap: 12,
     backgroundColor: 'transparent',
   },
   iconContainer:{
     width:72, 
     height:72, 
     backgroundColor:'#F6FCFDDD', 
+    // backgroundColor: 'transparent',
     borderRadius:6, 
     shadowColor:'#23BEE3', 
     elevation:6, 
