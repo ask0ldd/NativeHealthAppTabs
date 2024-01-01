@@ -1,9 +1,19 @@
 import { Image, Pressable, Text, View, StyleSheet } from 'react-native'
+import { IAppointment } from '../app/(tabs)/appointments';
 
-function ClosedAppointment({appointmentId, practician, date, setActiveAppointment} : IProps){
+function ClosedAppointment({appointmentId, practician, date, setAppointmentsList} : IProps){
+
+    function switchThisAppointmentToOpen(appointmentid : number){
+        setAppointmentsList(prevAppointmentList => {
+            // close all appointments
+            const newAppointmentList = prevAppointmentList.map(appointment => ({...appointment, open : false}))
+            newAppointmentList[appointmentid].open = true
+            return newAppointmentList
+        })
+    }
 
     return(
-        <Pressable onPress={() => { setActiveAppointment(appointmentId) }} style={[styles.closedAppointmentContainer, {height:50}]}>
+        <Pressable onPress={() => switchThisAppointmentToOpen(appointmentId)} style={[styles.closedAppointmentContainer, {height:50}]}>
             <Text style={styles.closedAppointmentName}>{practician}</Text>
             <Text style={styles.closedAppointmentName}>{date}</Text>
             <Image source={require('../assets/icons/arrow.png')}/>
@@ -38,7 +48,7 @@ interface IProps{
     appointmentId: number
     practician : string
     date : string
-    setActiveAppointment : (activeAppointment : number) => void
+    setAppointmentsList : React.Dispatch<React.SetStateAction<IAppointment[]>>
 }
 
 export default ClosedAppointment

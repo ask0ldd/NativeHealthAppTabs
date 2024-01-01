@@ -18,35 +18,24 @@ export default function TabTwoScreen() {
               <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Next Appointments :</Text>
           </View>
 
+          {
+            appointmentsList.map((appointment, index) => 
+                appointment.open 
+              ? 
+                <OpenAppointment practician={appointment.practician} timeslot={appointment.timeslot} city={appointment.city}
+                state={appointment.state} date={appointment.date} address={appointment.address}/> 
+              :
+                <ClosedAppointment practician={appointment.practician} date={appointment.date} setAppointmentsList={setAppointmentsList}
+                appointmentId={index} />)
+          }
+
+          {/*
           <OpenAppointment practician={appointmentsList[0].practician} timeslot={appointmentsList[0].timeslot} city={appointmentsList[0].city}
           state={appointmentsList[0].state} date={appointmentsList[0].date} address={appointmentsList[0].address}/>
 
           <ClosedAppointment practician={appointmentsList[1].practician} date={appointmentsList[1].date} setActiveAppointment={setActiveAppointment}
           appointmentId={1} />
-
-          {/*<Pressable onPress={() => { setActiveAppointment(1) }} style={[styles.closedAppointmentContainer, {height : activeAppointment === 1 ? 100 : 50}]}>
-            <Text style={styles.closedAppointmentName}>Dr Connie Walter</Text>
-            <Text style={styles.closedAppointmentName}>02-27-2023</Text>
-            <Image source={require('../../assets/icons/arrow.png')}/>
-          </Pressable>
-
-          <Pressable onPress={() => { setActiveAppointment(2) }} style={[styles.closedAppointmentContainer, {height : activeAppointment === 2 ? 100 : 50}]}>
-            <Text style={styles.closedAppointmentName}>Dr Olga Abramovic</Text>
-            <Text style={styles.closedAppointmentName}>02-27-2023</Text>
-            <Image source={require('../../assets/icons/arrow.png')}/>
-          </Pressable>
-
-          <Pressable onPress={() => { setActiveAppointment(3) }} style={[styles.closedAppointmentContainer, {height : activeAppointment === 3 ? 100 : 50}]}>
-            <Text style={styles.closedAppointmentName}>Dr Connie Walter</Text>
-            <Text style={styles.closedAppointmentName}>02-27-2023</Text>
-            <Image source={require('../../assets/icons/arrow.png')}/>
-          </Pressable>
-
-          <Pressable onPress={() => { setActiveAppointment(4) }} style={[styles.closedAppointmentContainer, {height : activeAppointment === 4 ? 100 : 50}]}>
-            <Text style={styles.closedAppointmentName}>Dr Andy Gaynes</Text>
-            <Text style={styles.closedAppointmentName}>02-27-2023</Text>
-            <Image source={require('../../assets/icons/arrow.png')}/>
-          </Pressable>*/}
+          */}
 
         </View>        
       </LinearGradient>
@@ -55,8 +44,6 @@ export default function TabTwoScreen() {
   )
 
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -136,7 +123,7 @@ const appointmentsListInit : Array<IAppointment> = [
   },
 ]
 
-interface IAppointment {
+export interface IAppointment {
   practician : string,
   date : string,
   timeslot : string,
