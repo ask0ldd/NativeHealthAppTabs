@@ -13,7 +13,7 @@ export default function TabThreeScreen() {
   useEffect(() => {
     const interval = setInterval(() => {
       setnDots((prevDots) => (prevDots.length >= 3 ? '.' : prevDots + '.'))
-      setnCircles((prevCircles) => (prevCircles >= 5 ? 0 : prevCircles + 1))
+      setnCircles((prevCircles) => (prevCircles >= 6 ? 0 : prevCircles + 1))
     }, 500)
 
     return () => clearInterval(interval)
@@ -23,6 +23,18 @@ export default function TabThreeScreen() {
   return (
     <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
 
+      {nCircles>5 && <View style={{
+        position:'absolute',
+        top: '50%',
+        left:'50%',
+        transform: [{ translateX: -300 }, { translateY: -300 }],
+        width: 600,
+        height:600,
+        borderRadius:600,
+        borderWidth:2,
+        borderColor:'#8BDCEF50',
+        backgroundColor:'transparent',
+      }}/>}       
       {nCircles>4 && <View style={{
         position:'absolute',
         top: '50%',
@@ -33,7 +45,7 @@ export default function TabThreeScreen() {
         borderRadius:500,
         borderWidth:2,
         borderColor:'#8BDCEF50',
-        backgroundColor:'transparent',
+        backgroundColor:'#8BDCEF07',
       }}/>} 
       {nCircles>3 && <View style={{
         position:'absolute',
@@ -45,7 +57,7 @@ export default function TabThreeScreen() {
         borderRadius:400,
         borderWidth:2,
         borderColor:'#8BDCEF77',
-        backgroundColor:'transparent',
+        backgroundColor:'#8BDCEF15',
       }}/>}      
       {nCircles>2 && <View style={{
         position:'absolute',
@@ -57,7 +69,7 @@ export default function TabThreeScreen() {
         borderRadius:300,
         borderWidth:2,
         borderColor:'#8BDCEF77',
-        backgroundColor:'transparent',
+        backgroundColor:'#8BDCEF25',
       }}/>}
       {nCircles>1 && <View style={{
         position:'absolute',
@@ -69,7 +81,7 @@ export default function TabThreeScreen() {
         borderRadius:200,
         borderWidth:2,
         borderColor:'#8BDCEFaa',
-        backgroundColor:'transparent',
+        backgroundColor:'#8BDCEF40',
       }}/>}
       {nCircles>0 && <View style={{
         position:'absolute',
@@ -81,7 +93,7 @@ export default function TabThreeScreen() {
         borderRadius:100,
         borderWidth:2,
         borderColor:'#8BDCEFcc',
-        backgroundColor:'transparent',
+        backgroundColor:'#8BDCEF60',
       }}/>}
 
       <View style={styles.avatar}>
