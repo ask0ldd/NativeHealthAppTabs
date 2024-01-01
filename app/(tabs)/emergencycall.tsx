@@ -1,4 +1,4 @@
-import { Image, StyleSheet } from 'react-native';
+import { Image, Pressable, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import { Text, View } from '../../components/Themed';
@@ -104,33 +104,38 @@ export default function TabThreeScreen() {
         <View style={styles.separatorLine}/>
         <Text style={styles.calling}>Calling{nDots}</Text>
       </View>
-      <View style={{...styles.iconsRow, marginTop : 64}}>
-          <View style={styles.iconContainer}>
-            <Image source={require('../../assets/icons/record.png')}/>
-            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>RECORD</Text>
-          </View>
-          <View style={styles.iconContainer}>
-            <Image source={require('../../assets/icons/addcall.png')}/>
-            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>ADD CALL</Text>
-          </View>
-          <View style={styles.iconContainer}>
-            <Image source={require('../../assets/icons/mute.png')}/>
-            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>MUTE</Text>
-          </View>
+      <View style={{...styles.iconsRow, marginTop : 48}}>
+          <Pressable style={styles.iconContainer}>
+            <Image style={{width:32, height:32}} source={require('../../assets/icons/record2.png')}/>
+            <Text style={{fontSize:12, opacity:0.8, letterSpacing:0.25, color:'#415556',}}>RECORD</Text>
+          </Pressable>
+          <Pressable style={styles.iconContainer}>
+            <Image style={{width:32, height:32}} source={require('../../assets/icons/addcall3.png')}/>
+            <Text style={{fontSize:12, opacity:0.8, letterSpacing:0.25, color:'#415556',}}>ADD CALL</Text>
+          </Pressable>
+          <Pressable style={styles.iconContainer}>
+            <Image style={{width:32, height:32}} source={require('../../assets/icons/mute4.png')}/>
+            <Text style={{fontSize:12, opacity:0.8, letterSpacing:0.25, color:'#415556',}}>MUTE</Text>
+          </Pressable>
       </View>
       <View style={{...styles.iconsRow, marginTop : 16}}>
-          <View style={styles.iconContainer}>
-            <Image source={require('../../assets/icons/record.png')}/>
-            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>RECORD</Text>
-          </View>
-          <View style={styles.iconContainer}>
-            <Image source={require('../../assets/icons/addcall.png')}/>
-            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>ADD CALL</Text>
-          </View>
-          <View style={styles.iconContainer}>
-            <Image source={require('../../assets/icons/mute.png')}/>
-            <Text style={{fontSize:12, opacity:0.7, letterSpacing:0.75,}}>MUTE</Text>
-          </View>
+          <Pressable style={styles.iconContainer}>
+            <Image style={{width:32, height:32}} source={require('../../assets/icons/record2.png')}/>
+            <Text style={{fontSize:12, opacity:0.8, letterSpacing:0.25, color:'#415556',}}>RECORD</Text>
+          </Pressable>
+          <Pressable style={styles.iconContainer}>
+            <Image style={{width:32, height:32}} source={require('../../assets/icons/addcall3.png')}/>
+            <Text style={{fontSize:12, opacity:0.8, letterSpacing:0.25, color:'#415556',}}>ADD CALL</Text>
+          </Pressable>
+          <Pressable style={styles.iconContainer}>
+            <Image style={{width:32, height:32}} source={require('../../assets/icons/mute4.png')}/>
+            <Text style={{fontSize:12, opacity:0.8, letterSpacing:0.25, color:'#415556',}}>MUTE</Text>
+          </Pressable>
+      </View>
+      <View style={{...styles.iconsRow, marginTop : 48, columnGap:24}}>
+            <Image source={require('../../assets/buttons/speakeron.png')}/>
+            <Image source={require('../../assets/buttons/hangdown.png')}/>
+            <Image source={require('../../assets/buttons/speakeron.png')}/>
       </View>
     </LinearGradient>
   );
@@ -163,6 +168,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#FFFFFFCC',
     marginTop:36,
     rowGap:10,
+    borderColor:'#FFFFFFEE',
+    borderWidth:2,
   },
   title: {
     /*marginTop : 28,*/
@@ -189,9 +196,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   iconContainer:{
-    width:88, 
-    height:88, 
-    backgroundColor:'#F6FCFD', 
+    width:72, 
+    height:72, 
+    backgroundColor:'#F6FCFDDD', 
     borderRadius:6, 
     shadowColor:'#23BEE3', 
     elevation:6, 
@@ -199,8 +206,10 @@ const styles = StyleSheet.create({
     flexDirection:'column',
     justifyContent:'center',
     alignItems:'center',
-    rowGap:8,
-    paddingTop:4,
-    opacity:0.9,
+    rowGap:4,
+    paddingTop:3,
+    opacity:1,
+    borderColor:'#FFFFFF',
+    borderWidth:2,
   },
 });
