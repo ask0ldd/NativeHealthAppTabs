@@ -1,5 +1,5 @@
 import { Image, ScrollView, StyleSheet, Pressable, TextInput } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 
 import { Text, View } from '../../components/Themed';
 import Card from '../../components/Card';
@@ -67,12 +67,24 @@ export default function TabOneScreen() {
                 </ScrollView>
         </View>
         <MapView style={styles.map} 
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.02,
-          longitudeDelta: 0.02,
-        }}/>
+          initialRegion={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.02,
+            longitudeDelta: 0.02,
+          }}>
+            <Marker
+              key={1}
+              coordinate={{latitude:37.78825+0.005, longitude: -122.4324+0.005}}
+              title={"marker.title"}
+              description={"marker.description"}
+            />
+            <Marker
+              key={2}
+              coordinate={{latitude:37.78825-0.005, longitude: -122.4324-0.005}}>
+              <Image style={styles.marker} source={require('../../assets/avatars/oliver72_avatar.png')}/>
+            </Marker>
+        </MapView>
 
       </LinearGradient>
     </ScrollView>
@@ -134,7 +146,14 @@ const styles = StyleSheet.create({
     width:'100%',
     borderColor:'#6BD3EB',
     borderTopWidth:2,
-  }
+  },
+  marker : {
+    width:48,
+    height:48,
+    borderRadius:6,
+    borderWidth:2,
+    borderColor:'#6BD3EB',
+  },
   /*title: {
     fontSize: 20,
     fontWeight: 'bold',
