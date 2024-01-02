@@ -23,7 +23,7 @@ export default function TabTwoScreen() {
           {
             appointmentsList.map((appointment, index) => 
                 appointment.open ? 
-                <OpenAppointment key={'app'+index} practician={appointment.practician} timeslot={appointment.timeslot} city={appointment.city}
+                <OpenAppointment key={'app'+index} picture={appointment.picture} practician={appointment.practician} timeslot={appointment.timeslot} city={appointment.city}
                 state={appointment.state} date={appointment.date} address={appointment.address}/> 
                 :
                 <ClosedAppointment key={'app'+index} practician={appointment.practician} date={appointment.date} setAppointmentsList={setAppointmentsList}
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
 
 const appointmentsListInit : Array<IAppointment> = [
   {
+    picture : "oliver",
     practician : "Oliver Sykes",
     date : "Thu, May 2 2023",
     timeslot : "15h00 - 16h00",
@@ -87,6 +88,7 @@ const appointmentsListInit : Array<IAppointment> = [
     open : true,
   },
   {
+    picture : "connie",
     practician : "Connie Walter",
     date : "Thu, May 3 2023",
     timeslot : "13h00 - 14h00",
@@ -96,6 +98,7 @@ const appointmentsListInit : Array<IAppointment> = [
     open : false,
   },
   {
+    picture : "olga",
     practician : "Olga Abramovic",
     date : "Tue, May 10 2023",
     timeslot : "11h00 - 12h00",
@@ -105,6 +108,7 @@ const appointmentsListInit : Array<IAppointment> = [
     open : false,
   },
   {
+    picture : "connie",
     practician : "Connie Walter",
     date : "Thu, May 12 2023",
     timeslot : "13h00 - 14h00",
@@ -114,6 +118,7 @@ const appointmentsListInit : Array<IAppointment> = [
     open : false,
   },
   {
+    picture : "henry",
     practician : "Andy Gaynes",
     date : "Wed, May 22 2023",
     timeslot : "11h00 - 12h00",
@@ -125,6 +130,7 @@ const appointmentsListInit : Array<IAppointment> = [
 ]
 
 export interface IAppointment {
+  picture : string,
   practician : string,
   date : string,
   timeslot : string,

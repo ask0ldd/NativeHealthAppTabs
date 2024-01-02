@@ -1,12 +1,20 @@
 import React from 'react';
-import { Image, Pressable, Text, View, StyleSheet } from 'react-native'
+import { Image, Pressable, Text, View, StyleSheet, ImageSourcePropType } from 'react-native'
 
-function OpenAppointment({date, timeslot, practician, address, city, state} : IProps){
+function OpenAppointment({picture, date, timeslot, practician, address, city, state} : IProps){
+
+    // !!! usememo
+    const pics : Record<string, ImageSourcePropType> = {
+        oliver : require('../assets/avatars/oliver72_avatar.png'),
+        connie : require('../assets/avatars/connie72_avatar.png'),
+        henry : require('../assets/avatars/henry72_avatar.png'),
+        olga : require('../assets/avatars/olga72_avatar.png'),
+    }
 
     return(
         <Pressable style={{flexDirection:'row', rowGap:6, padding:18, width:'100%', flex:1, alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
             <View style={{borderRadius:6, shadowColor:'#23BEE3', borderWidth:3, borderColor:'#FFFFFFFF', elevation:6, overflow:'hidden'}}>
-            <Image source={require('../assets/avatars/oliver72_avatar.png')}/>
+            <Image source={pics[picture]}/>
             </View>
             <View style={{flexDirection:'column', rowGap:5, marginLeft:16}}>
                 <Text style={{color:'#374B4C', fontSize:16, fontFamily:'Montserrat_700Bold',}}>Dr {practician}</Text>
@@ -32,6 +40,7 @@ const styles = StyleSheet.create({
 });
 
 interface IProps{
+    picture : string
     date : string
     timeslot : string
     practician : string
