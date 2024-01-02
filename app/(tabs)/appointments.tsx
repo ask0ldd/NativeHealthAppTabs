@@ -6,13 +6,14 @@ import ClosedAppointment from '../../components/ClosedAppointment';
 
 export default function TabTwoScreen() {
 
-  const [activeAppointment, setActiveAppointment] = useState<number>(0)
+  // const [activeAppointment, setActiveAppointment] = useState<number>(0)
 
   const [appointmentsList, setAppointmentsList] = useState<Array<IAppointment>>(appointmentsListInit)
 
   return (
     <ScrollView>
       <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
+        <Image style={{position:'absolute', top:90, left:-120,}} source={require('../../assets/bgpattern.png')}/>
         <View style={styles.appointmentsContainer}>
           <View style={{flexDirection:'column', rowGap:10}}>
               <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Next Appointments :</Text>
@@ -20,11 +21,10 @@ export default function TabTwoScreen() {
 
           {
             appointmentsList.map((appointment, index) => 
-                appointment.open 
-              ? 
+                appointment.open ? 
                 <OpenAppointment key={'app'+index} practician={appointment.practician} timeslot={appointment.timeslot} city={appointment.city}
                 state={appointment.state} date={appointment.date} address={appointment.address}/> 
-              :
+                :
                 <ClosedAppointment key={'app'+index} practician={appointment.practician} date={appointment.date} setAppointmentsList={setAppointmentsList}
                 appointmentId={index} />)
           }

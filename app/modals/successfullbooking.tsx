@@ -2,9 +2,9 @@ import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-nati
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 
-type Props = {}
+type IProps = {}
 
-const SuccessfullBooking = (props: Props) => {
+const SuccessfullBooking = (props: IProps) => {
   return (
     <ScrollView>
         <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>
