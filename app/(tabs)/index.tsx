@@ -76,13 +76,22 @@ export default function TabOneScreen() {
             <Marker
               key={1}
               coordinate={{latitude:37.78825+0.005, longitude: -122.4324+0.005}}
-              title={"marker.title"}
+              title={"Olga Abramovic"}
               description={"marker.description"}
-            />
+            >
+              <View style={styles.marker}><Image style={{width:48, height:48}} source={require('../../assets/avatars/olga72_avatar.png')}/></View>
+            </Marker>
             <Marker
               key={2}
+              title={"Henry Gaynes"}
               coordinate={{latitude:37.78825-0.005, longitude: -122.4324-0.005}}>
-              <Image style={styles.marker} source={require('../../assets/avatars/oliver72_avatar.png')}/>
+              <View style={styles.marker}><Image style={{width:48, height:48}} source={require('../../assets/avatars/henry72_avatar.png')}/></View>
+            </Marker>
+            <Marker
+              key={3}
+              title={"Oliver Sykes"}
+              coordinate={{latitude:37.78825-0.0025, longitude: -122.4324+0.006}}>
+              <View style={styles.marker}><Image style={{width:48, height:48}} source={require('../../assets/avatars/oliver72_avatar.png')}/></View>
             </Marker>
         </MapView>
 
@@ -153,6 +162,10 @@ const styles = StyleSheet.create({
     borderRadius:6,
     borderWidth:2,
     borderColor:'#6BD3EB',
+    overflow:'hidden',
+    elevation:8,
+    shadowColor:'#000000',
+    shadowOpacity:1
   },
   /*title: {
     fontSize: 20,

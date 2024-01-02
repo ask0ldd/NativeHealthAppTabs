@@ -119,7 +119,7 @@ const appointmentsListInit : Array<IAppointment> = [
   },
   {
     picture : "henry",
-    practician : "Andy Gaynes",
+    practician : "Henry Gaynes",
     date : "Wed, May 22 2023",
     timeslot : "11h00 - 12h00",
     address : "9500 Euclid Avenue",
