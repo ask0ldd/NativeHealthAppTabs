@@ -1,5 +1,5 @@
 import { Image, ScrollView, StyleSheet, Pressable, TextInput } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Callout, Marker } from 'react-native-maps';
 
 import { Text, View } from '../../components/Themed';
 import Card from '../../components/Card';
@@ -57,15 +57,17 @@ export default function TabOneScreen() {
           </Link>
         </View>
         <View style={{flexDirection:'row', marginTop:35, justifyContent:'space-between', alignItems:'baseline', paddingHorizontal:16, backgroundColor:'#00000000'}}>
-            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Recommanded For You</Text>
+            <Text style={{color:'#415556', fontSize:20, fontFamily:'Montserrat_700Bold'}}>Recommended For You</Text>
             <Text style={{color:'#29AAC9', fontSize:14, opacity:0.9, textDecorationStyle:'solid', textDecorationLine:'underline', fontFamily:'Montserrat_600SemiBold'}}>See More</Text>
         </View>
         <View style={styles.visitCardContainer}>
-                <ScrollView horizontal={true} contentContainerStyle={{columnGap: 24, paddingLeft:16, paddingRight:16, paddingBottom:20}}>
+                <ScrollView horizontal={true} contentContainerStyle={{columnGap: 24, paddingLeft:16, paddingRight:16}}>
                   <SpecialistCard/>
                   <SpecialistCard/>
                 </ScrollView>
         </View>
+
+        <View style={styles.mapborder}></View>
         <MapView style={styles.map} 
           initialRegion={{
             latitude: 37.78825,
@@ -92,6 +94,13 @@ export default function TabOneScreen() {
               title={"Oliver Sykes"}
               coordinate={{latitude:37.78825-0.0025, longitude: -122.4324+0.006}}>
               <View style={styles.marker}><Image style={{width:48, height:48}} source={require('../../assets/avatars/oliver72_avatar.png')}/></View>
+              <Callout style={{display:'flex', flexDirection: 'column', width:160, alignItems: 'center', justifyContent:'center', paddingBottom:3}}>
+                  <Text style={{fontSize:14, fontWeight:'bold'}}>Oliver Sykes</Text>
+                  <Text style={{fontSize:12}}>Next Free Slot : 02-18-2022</Text>
+              </Callout>
+            </Marker>
+            <Marker key={4} coordinate={{latitude:37.78825, longitude: -122.4324}}>
+              <Image style={{width:26, height:34}} source={require('../../assets/icons/location.png')} />
             </Marker>
         </MapView>
 
@@ -149,6 +158,11 @@ const styles = StyleSheet.create({
     alignItems:'center',
     shadowColor:'#39C5E6ff',
     elevation:10,
+  },
+  mapborder: {
+    width:'100%',
+    height:1,
+    backgroundColor:'#6BD3EB'
   },
   map : {
     height: 400,

@@ -16,7 +16,7 @@ const SpecialistCard = (props: Props) => {
         <Image style={{opacity: 0.93, alignSelf: 'flex-end', marginLeft: 10}} source={require('../assets/avatars/oliver_avatar.png')}/>
         <View style={styles.infosContainer}>
           <Text style={{color: '#374B4C', fontSize: 16, marginTop: 18, fontFamily:'Montserrat_700Bold'}}>Dr Oliver SYKES</Text>
-          <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 12, marginTop: 6, fontFamily:'Montserrat_600SemiBold'}}>HEAR SURGEON</Text>
+          <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 12, marginTop: 6, fontFamily:'Montserrat_600SemiBold'}}>HEART SURGEON</Text>
           <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 8, marginTop: 12}}>
             <Ratings rating={5}/>
             <Text style={{color: 'rgba(137, 164, 171, 0.9)', fontSize: 10, fontFamily:'Montserrat_500Medium'}}>(22 Reviews)</Text>
