@@ -1,6 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient"
 import { Image, StyleSheet, ImageSourcePropType} from 'react-native';
 import { Text, View } from '../components/Themed';
+import React from "react";
 
 function Document({iconFileName, documentName, date} : IProps){
 

@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import Ratings from './Ratings'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Link } from 'expo-router'
+import React from 'react'
 
 type Props = {}
 

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Image, ImageSourcePropType, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
+import React from 'react'
 
 type Props = {
     speciality : string

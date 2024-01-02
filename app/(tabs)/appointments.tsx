@@ -3,6 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
 import OpenAppointment from '../../components/OpenAppointment';
 import ClosedAppointment from '../../components/ClosedAppointment';
+import React from 'react';
 
 export default function TabTwoScreen() {
 

@@ -1,5 +1,6 @@
 import { Image, Pressable, Text, View, StyleSheet } from 'react-native'
 import { IAppointment } from '../app/(tabs)/appointments';
+import React from 'react';
 
 function ClosedAppointment({appointmentId, practician, date, setAppointmentsList} : IProps){
 

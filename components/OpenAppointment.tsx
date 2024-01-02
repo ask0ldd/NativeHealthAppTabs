@@ -1,3 +1,4 @@
+import React from 'react';
 import { Image, Pressable, Text, View, StyleSheet } from 'react-native'
 
 function OpenAppointment({date, timeslot, practician, address, city, state} : IProps){

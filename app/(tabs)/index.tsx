@@ -7,6 +7,7 @@ import Speciality from '../../components/Speciality';
 import { Link } from 'expo-router';
 import SpecialistCard from '../../components/SpecialistCard';
 import { useState } from 'react';
+import React from 'react';
 
 export default function TabOneScreen() {
 
