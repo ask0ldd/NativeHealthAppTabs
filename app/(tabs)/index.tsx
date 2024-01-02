@@ -1,4 +1,5 @@
 import { Image, ScrollView, StyleSheet, Pressable, TextInput } from 'react-native';
+import MapView from 'react-native-maps';
 
 import { Text, View } from '../../components/Themed';
 import Card from '../../components/Card';
@@ -65,6 +66,13 @@ export default function TabOneScreen() {
                   <SpecialistCard/>
                 </ScrollView>
         </View>
+        <MapView style={styles.map} 
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.02,
+          longitudeDelta: 0.02,
+        }}/>
 
       </LinearGradient>
     </ScrollView>
@@ -120,6 +128,12 @@ const styles = StyleSheet.create({
     alignItems:'center',
     shadowColor:'#39C5E6ff',
     elevation:10,
+  },
+  map : {
+    height: 400,
+    width:'100%',
+    borderColor:'#6BD3EB',
+    borderTopWidth:2,
   }
   /*title: {
     fontSize: 20,
