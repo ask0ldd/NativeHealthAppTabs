@@ -15,7 +15,7 @@ import React from 'react';
 
 const Timeslots : Array<string> = ["09h00 AM", "10h00 AM", "11h00 AM", "13h00 PM", "14h00 PM", "15h00 PM", "16h00 PM", "17h00 PM", "18h00 PM"]
 
-export default function AppointmentScreen() {
+export default function AppointmentScreen() { // should pass practician infos
 
   const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
 
@@ -24,9 +24,28 @@ export default function AppointmentScreen() {
 
   const currentDate = useMemo <Date>(() => new Date(), [])
   const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }), [currentDate])
-  const [ activeDate, setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' })}) // curent date
-  const [ activeTimeSlot, setActiveTimeSlot ] = useState<string>(Timeslots[3])
-  const [ bookingMessage, setBookingMessage ] = useState<string>()
+  
+  const [ activeDate, _setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' })}) // curent date
+  const activeDateRef = useRef({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' })})
+  function setActiveDate(activeDate : IActiveDate){
+    setActiveDate(activeDate)
+    activeDateRef.current = activeDate
+  }
+  
+  const [ activeTimeSlot, _setActiveTimeSlot ] = useState<string>(Timeslots[3])
+  const activeTimeSlotRef = useRef(Timeslots[3])
+  function setActiveTimeSlot(slot : string){
+    _setActiveTimeSlot(slot)
+    activeTimeSlotRef.current = slot
+  }
+
+  
+  const [ bookingMessage, _setBookingMessage ] = useState<string>()
+  const bookingMessageRef = useRef("")
+  function setBookingMessage(text : string){
+    _setBookingMessage(text)
+    bookingMessageRef.current = text
+  }
 
   return (
     <KeyboardAwareScrollView enableOnAndroid>

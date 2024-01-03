@@ -30,7 +30,7 @@ const SuccessfullBooking = (props: IProps) => {
                         <View style={{flexDirection:'row', columnGap:20}}>
                             <View style={{flexDirection:'column', rowGap:6, width:'100%', flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
                                 <Text style={{color:'#374B4C', fontSize:16, fontFamily:'Montserrat_700Bold',}}>{defaultAppointment.practitioner}</Text>
-                                <Text style={{color:'#89A4AB', opacity:0.9,  fontSize:12, fontFamily:'Montserrat_600SemiBold',}}>HEART SURGEON</Text>
+                                <Text style={{color:'#89A4AB', opacity:0.9,  fontSize:12, fontFamily:'Montserrat_600SemiBold',}}>{defaultAppointment.specialty}</Text>
                             </View>
                             <View style={{borderRadius:6, shadowColor:'#23BEE3', borderWidth:3, borderColor:'#FFFFFFFF', elevation:6, overflow:'hidden'}}><Image source={require('../../assets/avatars/oliver72_avatar.png')}/></View>
                         </View>
@@ -39,21 +39,21 @@ const SuccessfullBooking = (props: IProps) => {
                     <View style={{flexDirection:'column', rowGap:10}}>
                         <Text style={{color:'#374B4C',  fontSize:14, fontFamily:'Montserrat_600SemiBold', opacity:0.9}}>Date :</Text>
                         <View style={{width:'100%', height:40, flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
-                            <Text style={{fontSize:12, fontFamily:'Montserrat_600SemiBold', color:'#374B4C'}}>Monday, September 6, 2019</Text>
+                            <Text style={{fontSize:12, fontFamily:'Montserrat_600SemiBold', color:'#374B4C'}}>{defaultAppointment.date}</Text>
                         </View>
                     </View>
 
                     <View style={{flexDirection:'column', rowGap:10}}>
                         <Text style={{color:'#374B4C',  fontSize:14, fontFamily:'Montserrat_600SemiBold', opacity:0.9}}>Time Slot :</Text>
                         <View style={{width:'100%', height:40, flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
-                            <Text style={{fontSize:12, fontFamily:'Montserrat_600SemiBold', color:'#374B4C'}}>10h00 - 11h00</Text>
+                            <Text style={{fontSize:12, fontFamily:'Montserrat_600SemiBold', color:'#374B4C'}}>{defaultAppointment.timeslot}</Text>
                         </View>
                     </View>
 
                     <View style={{flexDirection:'column', rowGap:10, flex:1}}>
                         <Text style={{color:'#374B4C',  fontSize:14, fontFamily:'Montserrat_600SemiBold', opacity:0.9}}>Message :</Text>
                         <View style={{width:'100%', flex:1, justifyContent:'center', alignItems:'center', borderRadius:6, shadowColor:'#23BEE3', elevation:6, backgroundColor:'#FFFFFFCC'}}>
-                            <Text style={{fontSize:12, paddingHorizontal:12, paddingVertical:16, lineHeight:18, fontFamily:'Montserrat_400Regular', color:'#374B4C'}}>For the past two weeks, I have been experiencing persistent headaches, primarily located in the frontal region of my head. The intensity of the headaches varies throughout the day, but they have been interfering with my daily activities and causing discomfort.</Text>
+                            <Text style={{fontSize:12, paddingHorizontal:12, paddingVertical:16, lineHeight:18, fontFamily:'Montserrat_400Regular', color:'#374B4C'}}>{defaultAppointment.message}</Text>
                         </View>
                     </View>
 
