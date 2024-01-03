@@ -19,6 +19,8 @@ const SuccessfullBooking = (props: IProps) => {
 
     if(bookedAppointment.date != null) appointment = {...bookedAppointment}
 
+    console.log(bookedAppointment)
+
     return (
         <ScrollView>
             <LinearGradient colors={['#B9EFF3','#EDF5F7']} style={styles.container}>

@@ -54,17 +54,15 @@ export default function AppointmentScreen() { // should pass practician infos
   const { bookedAppointment, setBookedAppointment} = useContext(BookedAppointmentContext)
   
   function updateContextnPushModal(){
-    if(!fieldsValidation) return
-    setBookedAppointment( prevState => ({...prevState, 
-      bookedAppointment : {
+    // if(!fieldsValidation) return
+    setBookedAppointment({
         practitioner : "Dr Oliver Sykes",
         specialty : "HEART SURGEON",
-        date : activeDateRef.current,
+        date : activeDateRef.current.day + activeDateRef.current.month,
         timeslot : activeTimeSlotRef.current,
         message : bookingMessageRef.current,
-      }})
-    )
-    router.push('/modals/successfullbooking')
+    })
+    router.push('/modals/successfullbooking') // push with parameters
   }
 
   function fieldsValidation(){
