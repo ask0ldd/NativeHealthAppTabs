@@ -2,22 +2,24 @@ import { Image, ScrollView, StyleSheet, Pressable, TextInput, Dimensions} from '
 
 import { Text, View } from '../../components/Themed';
 import { LinearGradient } from 'expo-linear-gradient'
-import { Link } from 'expo-router';
-import { useContext, useMemo, useRef, useState } from 'react';
+// import { Link } from 'expo-router';
+import React, { useContext, useMemo, useRef, useState } from 'react';
 import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
 import TimeSlotButton from '../../components/TimeSlotButton';
-import { useRouter } from 'expo-router';
+import { Href, useRouter } from 'expo-router';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Document from '../../components/Document';
-import React from 'react';
+
 import { BookedAppointmentContext } from '../context/BookedAppointmentContext';
 
 const Timeslots : Array<string> = ["09h00 AM", "10h00 AM", "11h00 AM", "13h00 PM", "14h00 PM", "15h00 PM", "16h00 PM", "17h00 PM", "18h00 PM"]
 const MonthsList : Array<string> = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 
 export default function AppointmentScreen() { // should pass practician infos
+
+  const router = useRouter()
 
   const { width: screenWidth, height: screenHeight } = Dimensions.get('window')
 
@@ -51,7 +53,7 @@ export default function AppointmentScreen() { // should pass practician infos
 
   const { bookedAppointment, setBookedAppointment} = useContext(BookedAppointmentContext)
   
-  function updateContext(){
+  function updateContextnPushModal(){
     if(!fieldsValidation) return
     setBookedAppointment( prevState => ({...prevState, 
       bookedAppointment : {
@@ -62,6 +64,7 @@ export default function AppointmentScreen() { // should pass practician infos
         message : bookingMessageRef.current,
       }})
     )
+    router.push('/modals/successfullbooking')
   }
 
   function fieldsValidation(){
@@ -75,7 +78,7 @@ export default function AppointmentScreen() { // should pass practician infos
         <Image style={{position:'absolute', top:110, left:-120,}} source={require('../../assets/bgpattern.png')}/>
         <View style={styles.buttonsnCardContainer}>
           <View style={styles.buttonsContainer}>
-              <Pressable style={styles.buttons} onPress={useRouter().back}>
+              <Pressable style={styles.buttons} onPress={router.back}>
                 <Image style={{width:42, height:42}} source={require('../../assets/buttons/back.png')}/>
               </Pressable>
               <View style={[styles.blueButtons, {marginTop:'auto'}]}>
@@ -127,7 +130,7 @@ export default function AppointmentScreen() { // should pass practician infos
 
         <TextInput style={styles.bookingMessageInput} multiline={true} numberOfLines={8} onChangeText={(text) => setBookingMessage(text)} value={bookingMessage} maxLength={600}/>
 
-        <Pressable style={styles.bookingButton} onPress={updateContext}>
+        <Pressable style={styles.bookingButton} onPress={updateContextnPushModal}>
               <LinearGradient style={styles.bookingButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
                 <Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Book this Appointment</Text>
               </LinearGradient>
