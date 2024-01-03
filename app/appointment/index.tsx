@@ -3,11 +3,10 @@ import { Image, ScrollView, StyleSheet, Pressable, TextInput, Dimensions} from '
 import { Text, View } from '../../components/Themed';
 import { LinearGradient } from 'expo-linear-gradient'
 import { Link } from 'expo-router';
-import { RefObject, useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
 import TimeSlotButton from '../../components/TimeSlotButton';
-import { BorderlessButton } from 'react-native-gesture-handler';
 import { useRouter } from 'expo-router';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
