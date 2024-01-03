@@ -3,7 +3,7 @@ import { Image, ScrollView, StyleSheet, Pressable, TextInput, Dimensions} from '
 import { Text, View } from '../../components/Themed';
 import { LinearGradient } from 'expo-linear-gradient'
 import { Link } from 'expo-router';
-import { useMemo, useRef, useState } from 'react';
+import { useContext, useMemo, useRef, useState } from 'react';
 import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
 import TimeSlotButton from '../../components/TimeSlotButton';
@@ -12,6 +12,7 @@ import { useRouter } from 'expo-router';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Document from '../../components/Document';
 import React from 'react';
+import { BookedAppointmentContext } from '../context/BookedAppointmentContext';
 
 const Timeslots : Array<string> = ["09h00 AM", "10h00 AM", "11h00 AM", "13h00 PM", "14h00 PM", "15h00 PM", "16h00 PM", "17h00 PM", "18h00 PM"]
 
@@ -45,6 +46,11 @@ export default function AppointmentScreen() { // should pass practician infos
   function setBookingMessage(text : string){
     _setBookingMessage(text)
     bookingMessageRef.current = text
+  }
+
+  const bookedAppointment = useContext(BookedAppointmentContext)
+  function updateContext(){
+
   }
 
   return (
@@ -105,7 +111,7 @@ export default function AppointmentScreen() { // should pass practician infos
 
         <TextInput style={styles.bookingMessageInput} multiline={true} numberOfLines={8} onChangeText={(text) => setBookingMessage(text)} value={bookingMessage} maxLength={600}/>
 
-        <Pressable style={styles.bookingButton}>
+        <Pressable style={styles.bookingButton} onPress={updateContext}>
               <LinearGradient style={styles.bookingButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
                 <Link href="/modals/successfullbooking" asChild><Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Book this Appointment</Text></Link>
               </LinearGradient>

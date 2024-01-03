@@ -6,12 +6,22 @@ interface IBookedAppointment{
     date : string
     timeslot : string
     message : string
-  }
+}
+
+interface IBookedAppointmentContext{
+    bookedAppointment : IBookedAppointment
+    setBookedAppointment : React.Dispatch<React.SetStateAction<IBookedAppointment>> | (() => void)
+}
   
-export const BookedAppointmentContext = createContext<IBookedAppointment>({
-    practitioner : "",
-    specialty : "",
-    date : "",
-    timeslot : "",
-    message : "",
-})
+export const BookedAppointmentContext = createContext<IBookedAppointmentContext>(
+    {
+        bookedAppointment : {
+            practitioner : "",
+            specialty : "",
+            date : "",
+            timeslot : "",
+            message : "",
+        },
+        setBookedAppointment : () => void 0
+    }
+)

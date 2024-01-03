@@ -2,7 +2,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useColorScheme } from 'react-native';
 import { BookedAppointmentContext } from './context/BookedAppointmentContext';
 
@@ -46,9 +46,11 @@ export default function RootLayout() {
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
+  const [bookedAppointment, setBookedAppointment] = useState(bookedAppointmentInit)
+
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <BookedAppointmentContext.Provider value={bookedAppointmentInit}>
+      <BookedAppointmentContext.Provider value={{bookedAppointment, setBookedAppointment}}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
