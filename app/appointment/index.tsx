@@ -35,7 +35,7 @@ export default function AppointmentScreen() { // should pass practician infos
   }
   
   const [ activeTimeSlot, _setActiveTimeSlot ] = useState<string>(Timeslots[3])
-  const activeTimeSlotRef = useRef(Timeslots[3])
+  const activeTimeSlotRef = useRef(activeTimeSlot)
   function setActiveTimeSlot(slot : string){
     _setActiveTimeSlot(slot)
     activeTimeSlotRef.current = slot
@@ -50,6 +50,7 @@ export default function AppointmentScreen() { // should pass practician infos
   }
 
   const { bookedAppointment, setBookedAppointment} = useContext(BookedAppointmentContext)
+  
   function updateContext(){
     if(!fieldsValidation) return
     setBookedAppointment( prevState => ({...prevState, 
@@ -64,7 +65,8 @@ export default function AppointmentScreen() { // should pass practician infos
   }
 
   function fieldsValidation(){
-    return Timeslots.includes(activeTimeSlotRef.current) && !isNaN(activeDateRef.current.day) && MonthsList.includes(activeDateRef.current.month)
+    // return Timeslots.includes(activeTimeSlotRef.current) && !isNaN(activeDateRef.current.day) && MonthsList.includes(activeDateRef.current.month)
+    return true
   }
 
   return (
@@ -127,7 +129,7 @@ export default function AppointmentScreen() { // should pass practician infos
 
         <Pressable style={styles.bookingButton} onPress={updateContext}>
               <LinearGradient style={styles.bookingButtonGradient} colors={['#6BD3EB', '#0FACD0']}>
-                <Link href="/modals/successfullbooking" asChild><Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Book this Appointment</Text></Link>
+                <Text style={{fontSize: 12, color: '#fff', fontFamily:'Montserrat_700Bold', marginTop:-1}}>Book this Appointment</Text>
               </LinearGradient>
         </Pressable>
 
@@ -277,3 +279,7 @@ export interface IActiveDate{
   day:number
   month:string
 }
+
+/*
+  <Link href="/modals/successfullbooking" asChild></Link>
+*/
