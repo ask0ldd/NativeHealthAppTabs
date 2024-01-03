@@ -15,6 +15,7 @@ import React from 'react';
 import { BookedAppointmentContext } from '../context/BookedAppointmentContext';
 
 const Timeslots : Array<string> = ["09h00 AM", "10h00 AM", "11h00 AM", "13h00 PM", "14h00 PM", "15h00 PM", "16h00 PM", "17h00 PM", "18h00 PM"]
+const MonthsList : Array<string> = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 
 export default function AppointmentScreen() { // should pass practician infos
 
@@ -27,7 +28,7 @@ export default function AppointmentScreen() { // should pass practician infos
   const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }), [currentDate])
   
   const [ activeDate, _setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' })}) // curent date
-  const activeDateRef = useRef({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' })})
+  const activeDateRef = useRef(activeDate)
   function setActiveDate(activeDate : IActiveDate){
     setActiveDate(activeDate)
     activeDateRef.current = activeDate
@@ -48,9 +49,22 @@ export default function AppointmentScreen() { // should pass practician infos
     bookingMessageRef.current = text
   }
 
-  const bookedAppointment = useContext(BookedAppointmentContext)
+  const { bookedAppointment, setBookedAppointment} = useContext(BookedAppointmentContext)
   function updateContext(){
+    if(!fieldsValidation) return
+    setBookedAppointment( prevState => ({...prevState, 
+      bookedAppointment : {
+        practitioner : "Dr Oliver Sykes",
+        specialty : "HEART SURGEON",
+        date : activeDateRef.current,
+        timeslot : activeTimeSlotRef.current,
+        message : bookingMessageRef.current,
+      }})
+    )
+  }
 
+  function fieldsValidation(){
+    return Timeslots.includes(activeTimeSlotRef.current) && !isNaN(activeDateRef.current.day) && MonthsList.includes(activeDateRef.current.month)
   }
 
   return (
