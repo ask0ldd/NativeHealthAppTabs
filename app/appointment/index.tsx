@@ -8,6 +8,7 @@ import Ratings from '../../components/Ratings';
 import DateButton from '../../components/DateButton';
 import TimeSlotButton from '../../components/TimeSlotButton';
 import { BorderlessButton } from 'react-native-gesture-handler';
+import { useRouter } from 'expo-router';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Document from '../../components/Document';
@@ -34,7 +35,7 @@ export default function AppointmentScreen() {
         <Image style={{position:'absolute', top:110, left:-120,}} source={require('../../assets/bgpattern.png')}/>
         <View style={styles.buttonsnCardContainer}>
           <View style={styles.buttonsContainer}>
-              <Pressable style={styles.buttons}>
+              <Pressable style={styles.buttons} onPress={useRouter().back}>
                 <Image style={{width:42, height:42}} source={require('../../assets/buttons/back.png')}/>
               </Pressable>
               <View style={[styles.blueButtons, {marginTop:'auto'}]}>

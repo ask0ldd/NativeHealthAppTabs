@@ -81,19 +81,22 @@ export default function TabOneScreen() {
               title={"Olga Abramovic"}
               description={"marker.description"}
             >
-              <View style={styles.marker}><Image style={{width:48, height:48}} source={require('../../assets/avatars/olga72_avatar.png')}/></View>
+              <View style={styles.marker}><Image style={{width:44, height:44}} source={require('../../assets/avatars/olga72_avatar.png')}/></View>
             </Marker>
             <Marker
               key={2}
-              title={"Henry Gaynes"}
               coordinate={{latitude:37.78825-0.005, longitude: -122.4324-0.005}}>
-              <View style={styles.marker}><Image style={{width:48, height:48}} source={require('../../assets/avatars/henry72_avatar.png')}/></View>
+              <View style={styles.marker}><Image style={{width:44, height:44}} source={require('../../assets/avatars/henry72_avatar.png')}/></View>
+              <Callout style={{display:'flex', flexDirection: 'column', width:160, alignItems: 'center', justifyContent:'center', paddingBottom:3}}>
+                  <Text style={{fontSize:14, fontWeight:'bold'}}>Henry Gaynes</Text>
+                  <Text style={{fontSize:12}}>Next Free Slot : 02-18-2022</Text>
+              </Callout>
             </Marker>
             <Marker
               key={3}
               title={"Oliver Sykes"}
               coordinate={{latitude:37.78825-0.0025, longitude: -122.4324+0.006}}>
-              <View style={styles.marker}><Image style={{width:48, height:48}} source={require('../../assets/avatars/oliver72_avatar.png')}/></View>
+              <View style={styles.marker}><Image style={{width:44, height:44}} source={require('../../assets/avatars/oliver72_avatar.png')}/></View>
               <Callout style={{display:'flex', flexDirection: 'column', width:160, alignItems: 'center', justifyContent:'center', paddingBottom:3}}>
                   <Text style={{fontSize:14, fontWeight:'bold'}}>Oliver Sykes</Text>
                   <Text style={{fontSize:12}}>Next Free Slot : 02-18-2022</Text>
