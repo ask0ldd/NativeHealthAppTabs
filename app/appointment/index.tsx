@@ -16,6 +16,7 @@ import { BookedAppointmentContext } from '../context/BookedAppointmentContext';
 
 const Timeslots : Array<string> = ["09h00 AM", "10h00 AM", "11h00 AM", "13h00 PM", "14h00 PM", "15h00 PM", "16h00 PM", "17h00 PM", "18h00 PM"]
 const MonthsList : Array<string> = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+const FullMonthsList : Array<string> = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 export default function AppointmentScreen() { // should pass practician infos
 
@@ -29,10 +30,10 @@ export default function AppointmentScreen() { // should pass practician infos
   const currentDate = useMemo <Date>(() => new Date(), [])
   const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }), [currentDate])
   
-  const [ activeDate, _setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' })}) // curent date
+  const [ activeDate, _setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' }).toLowerCase()}) // curent date
   const activeDateRef = useRef(activeDate)
   function setActiveDate(activeDate : IActiveDate){
-    setActiveDate(activeDate)
+    _setActiveDate(activeDate)
     activeDateRef.current = activeDate
   }
   
@@ -55,10 +56,13 @@ export default function AppointmentScreen() { // should pass practician infos
   
   function updateContextnPushModal(){
     // if(!fieldsValidation) return
+    console.log(activeDateRef.current.month)
+    const monthIndex = MonthsList.findIndex(el => el == activeDateRef.current.month)
+    console.log(monthIndex)
     setBookedAppointment({
         practitioner : "Dr Oliver Sykes",
         specialty : "HEART SURGEON",
-        date : activeDateRef.current.day + activeDateRef.current.month,
+        date : `Monday, ${FullMonthsList[monthIndex]} ${activeDateRef.current.day}, 2019`, // activeDateRef.current.day + activeDateRef.current.month, // "Monday, September 6, 2019",
         timeslot : activeTimeSlotRef.current,
         message : bookingMessageRef.current,
     })
