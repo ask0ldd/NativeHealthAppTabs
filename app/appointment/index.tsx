@@ -28,7 +28,7 @@ export default function AppointmentScreen() { // should pass practician infos
   const scrollViewTimeSlot = useRef<ScrollView|null>(null)
 
   const currentDate = useMemo <Date>(() => new Date(), [])
-  const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }), [currentDate])
+  const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }).toLowerCase(), [currentDate])
   const currentYear = useMemo <number>(() => currentDate.getFullYear(), [])
   
   const [ activeDate, _setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' }).toLowerCase()}) // curent date
@@ -56,7 +56,7 @@ export default function AppointmentScreen() { // should pass practician infos
   const { bookedAppointment, setBookedAppointment} = useContext(BookedAppointmentContext)
   
   function updateContextnPushModal(){
-    // if(!fieldsValidation) return
+    if(!fieldsValidation) return
     console.log(activeDateRef.current.month)
     const monthIndex = MonthsList.findIndex(el => el == activeDateRef.current.month)
     console.log(monthIndex)
@@ -71,8 +71,8 @@ export default function AppointmentScreen() { // should pass practician infos
   }
 
   function fieldsValidation(){
-    // return Timeslots.includes(activeTimeSlotRef.current) && !isNaN(activeDateRef.current.day) && MonthsList.includes(activeDateRef.current.month)
-    return true
+    return Timeslots.includes(activeTimeSlotRef.current) && !isNaN(activeDateRef.current.day) && MonthsList.includes(activeDateRef.current.month.toLowerCase())
+    // return true
   }
 
   return (
