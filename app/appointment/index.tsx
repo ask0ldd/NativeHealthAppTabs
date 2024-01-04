@@ -29,6 +29,7 @@ export default function AppointmentScreen() { // should pass practician infos
 
   const currentDate = useMemo <Date>(() => new Date(), [])
   const currentMonth = useMemo <string>(() => currentDate.toLocaleString('en-US', { month: 'short' }), [currentDate])
+  const currentYear = useMemo <number>(() => currentDate.getFullYear(), [])
   
   const [ activeDate, _setActiveDate ] = useState<IActiveDate>({day : currentDate.getDay(), month : currentDate.toLocaleString('en-US', { month: 'short' }).toLowerCase()}) // curent date
   const activeDateRef = useRef(activeDate)
@@ -62,7 +63,7 @@ export default function AppointmentScreen() { // should pass practician infos
     setBookedAppointment({
         practitioner : "Dr Oliver Sykes",
         specialty : "HEART SURGEON",
-        date : `Monday, ${FullMonthsList[monthIndex]} ${activeDateRef.current.day}, 2019`, // activeDateRef.current.day + activeDateRef.current.month, // "Monday, September 6, 2019",
+        date : `Monday, ${FullMonthsList[monthIndex]} ${activeDateRef.current.day}, ${currentYear}`,
         timeslot : activeTimeSlotRef.current,
         message : bookingMessageRef.current,
     })
